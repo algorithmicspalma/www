@@ -14,16 +14,19 @@ Visita nuestra página oficial: [www.algorithmicspalma.com](https://www.algorith
 
 - **Ubicación**: Palma, Islas Baleares, España
 - **Redes Sociales**:
+  - [Facebook](https://www.facebook.com/algopalma)
+  - [Instagram](https://instagram.com/algopalma)
+  - [TikTok](https://www.tiktok.com/@algorithmicspalma)
+  - [Pinterest](https://es.pinterest.com/algorithmicspalma)
   - [Twitter](https://twitter.com/algopalma)
   - [LinkedIn](https://linkedin.com/company/algorithmicspalma)
-  - [Instagram](https://instagram.com/algopalma)
+  - [Youtube](https://www.youtube.com/@AlgorithmicsPalma)
+  - [Threads](https://www.threads.com/@algopalma)
 
 ---
 
 <div align="center">
 
 **Hecho con ❤️ por el equipo de Algorithmics Palma**
-
-⭐ Si te gusta este proyecto, ¡no olvides darle una estrella!
 
 </div>
