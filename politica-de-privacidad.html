@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidad – Algorithmics Palma</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary:   #5b2d8e;
+      --accent:    #7c3aed;
+      --accent2:   #a855f7;
+      --light-bg:  #f5f3ff;
+      --text-dark: #12143a;
+      --text-mid:  #4a4e7a;
+      --text-light:#8a8fb5;
+      --grad: linear-gradient(135deg, #4c1d95 0%, #6b21a8 50%, #a855f7 100%);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--text-dark); background: #fff; }
+    h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
+
+    nav {
+      background: var(--primary);
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 20px rgba(91,45,142,.35);
+    }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-brand img { height: 34px; width: auto; }
+    .nav-brand span { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.05rem; color: #fff; }
+    .nav-back { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: .85rem; color: rgba(255,255,255,.75); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color .2s; }
+    .nav-back:hover { color: #fff; }
+
+    .page-hero {
+      background: var(--grad);
+      padding: 56px 24px 48px;
+      text-align: center;
+    }
+    .page-hero .label {
+      display: inline-block;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 50px;
+      padding: 5px 16px;
+      font-size: .75rem;
+      font-weight: 700;
+      color: #e0d4ff;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .page-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; color: #fff; margin-bottom: 12px; }
+    .page-hero p { color: rgba(255,255,255,.72); font-size: .95rem; max-width: 520px; margin: 0 auto; line-height: 1.6; }
+
+    .content { max-width: 780px; margin: 0 auto; padding: 60px 24px 80px; }
+    .content h2 { font-size: 1.35rem; font-weight: 700; color: var(--primary); margin: 40px 0 12px; padding-bottom: 8px; border-bottom: 2px solid var(--light-bg); }
+    .content h2:first-child { margin-top: 0; }
+    .content h3 { font-size: 1.05rem; font-weight: 700; color: var(--text-dark); margin: 24px 0 8px; }
+    .content p { color: var(--text-mid); font-size: .95rem; line-height: 1.75; margin-bottom: 14px; }
+    .content ul { margin: 8px 0 14px 20px; color: var(--text-mid); font-size: .95rem; line-height: 1.75; }
+    .content ul li { margin-bottom: 6px; }
+    .content a { color: var(--accent); text-decoration: underline; }
+
+    .info-box {
+      background: var(--light-bg);
+      border-radius: 12px;
+      padding: 20px 22px;
+      margin-bottom: 24px;
+      font-size: .9rem;
+    }
+    .info-box strong { color: var(--primary); font-family: 'Space Grotesk', sans-serif; display: block; margin-bottom: 6px; }
+    .info-box p { margin: 0; color: var(--text-mid); line-height: 1.65; }
+
+    .rights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+      margin: 16px 0 24px;
+    }
+    .right-card {
+      background: var(--light-bg);
+      border-radius: 10px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .right-card .icon { font-size: 1.3rem; flex-shrink: 0; }
+    .right-card h4 { font-size: .88rem; font-weight: 700; color: var(--text-dark); margin-bottom: 3px; }
+    .right-card p { font-size: .8rem; color: var(--text-mid); margin: 0; line-height: 1.5; }
+
+    .update-box { background: var(--light-bg); border-left: 4px solid var(--accent); border-radius: 0 10px 10px 0; padding: 14px 18px; margin-top: 40px; font-size: .85rem; color: var(--text-mid); }
+    .update-box strong { color: var(--text-dark); }
+
+    footer { background: var(--primary); text-align: center; padding: 28px 24px; }
+    footer p { color: rgba(255,255,255,.5); font-size: .82rem; }
+    footer a { color: rgba(255,255,255,.65); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">
+    <img src="img/logo-a.png" alt="Algorithmics" />
+    <span>Algorithmics Palma</span>
+  </a>
+  <a href="index.html" class="nav-back">← Volver a la web</a>
+</nav>
+
+<div class="page-hero">
+  <div class="label">Legal</div>
+  <h1>Política de Privacidad</h1>
+  <p>Cómo recopilamos, usamos y protegemos tus datos personales conforme al RGPD.</p>
+</div>
+
+<div class="content">
+
+  <div class="info-box">
+    <strong>Responsable del tratamiento</strong>
+    <p>
+      <span style="color:var(--text-dark);font-weight:700;">Algorithmics Palma</span><br>
+      C/ Marqués de Fontsanta, 37 · 07005 Palma de Mallorca<br>
+      <a href="mailto:palma@algoacademy.es">palma@algoacademy.es</a>
+    </p>
+  </div>
+
+  <h2>¿Qué datos recopilamos?</h2>
+  <p>Recopilamos los datos personales que nos proporcionas voluntariamente a través de nuestros formularios de contacto e inscripción.</p>
+  <p>Adicionalmente, si aceptas las cookies analíticas, recopilamos datos de navegación de forma anonimizada a través de Google Analytics (dirección IP anonimizada, páginas visitadas, tiempo de sesión).</p>
+
+  <h2>¿Para qué usamos tus datos?</h2>
+  <ul>
+    <li>Responder a tu solicitud de información o clase de prueba</li>
+    <li>Gestionar el proceso de inscripción a nuestros cursos</li>
+    <li>Enviarte información sobre nuestros programas, campus y novedades</li>
+    <li>Mejorar nuestros servicios y la experiencia en la web (datos analíticos anonimizados)</li>
+  </ul>
+
+  <h2>Cookies</h2>
+  <p>Para más información sobre el uso de cookies en nuestra web, consulta nuestra <a href="politica-de-cookies.html">Política de Cookies</a>.</p>
+
+  <div class="update-box">
+    <strong>Última actualización:</strong> mayo de 2026. Nos reservamos el derecho a modificar esta política para adaptarla a cambios legislativos o de nuestros servicios.
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Algorithmics Palma · <a href="politica-de-privacidad.html">Política de privacidad</a> · <a href="politica-de-cookies.html">Política de cookies</a></p>
+</footer>
+
+</body>
+</html>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J2TJW4SYXE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-J2TJW4SYXE', { anonymize_ip: true });
+</script>
