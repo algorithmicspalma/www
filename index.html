@@ -5646,5 +5646,102 @@ function toggleFaq(item) {
     })(window, document, "clarity", "script", "ws3574w7ao");
 </script>
 <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"c64901ff340e1d9063354398aac4cce7"})});</script>
+
+<!-- ═══════════════════════════════════════════
+     UTM PROPAGATION
+     Propaga utm_source, utm_medium, utm_campaign,
+     utm_content y utm_id a todos los enlaces salientes.
+═══════════════════════════════════════════ -->
+<script>
+(function () {
+  'use strict';
+
+  // Parámetros UTM que queremos propagar
+  var UTM_PARAMS = [
+    'utm_source',
+    'utm_medium',
+    'utm_campaign',
+    'utm_content',
+    'utm_id',
+    'utm_term'
+  ];
+
+  /**
+   * Lee los UTM presentes en la URL actual de la página.
+   * Devuelve un objeto { utm_source: '...', ... } solo con los que existen.
+   */
+  function getCurrentUtms() {
+    var params = new URLSearchParams(window.location.search);
+    var utms = {};
+    UTM_PARAMS.forEach(function (key) {
+      var val = params.get(key);
+      if (val) utms[key] = val;
+    });
+    return utms;
+  }
+
+  /**
+   * Añade (o sobreescribe) los UTMs en una URL dada.
+   * No toca URLs que sean anclas puras (#...) ni javascript:.
+   */
+  function appendUtmsToUrl(href, utms) {
+    if (!href) return href;
+    // Saltar anclas, mailto, tel, javascript
+    if (/^(#|mailto:|tel:|javascript:)/i.test(href)) return href;
+
+    try {
+      // Construir URL absoluta para poder parsearla
+      var base = window.location.origin;
+      var url = new URL(href, base);
+
+      Object.keys(utms).forEach(function (key) {
+        // Solo añade si el destino NO tiene ya ese parámetro
+        if (!url.searchParams.has(key)) {
+          url.searchParams.set(key, utms[key]);
+        }
+      });
+
+      // Si el href original era relativo, devolvemos solo path+search+hash
+      var isAbsolute = /^https?:\/\//i.test(href);
+      return isAbsolute ? url.toString() : url.pathname + url.search + url.hash;
+    } catch (e) {
+      return href; // Si no se puede parsear, devolver intacto
+    }
+  }
+
+  /**
+   * Aplica los UTMs en tiempo real al hacer click en cualquier <a>.
+   * Usar el evento 'click' en document (delegación) para capturar
+   * también los enlaces añadidos dinámicamente (modales, etc.).
+   */
+  function init() {
+    var utms = getCurrentUtms();
+
+    // Si no hay ningún UTM en la URL, no hacemos nada
+    if (Object.keys(utms).length === 0) return;
+
+    document.addEventListener('click', function (e) {
+      // Buscar el <a> más cercano al elemento clicado
+      var anchor = e.target.closest('a');
+      if (!anchor) return;
+
+      var href = anchor.getAttribute('href');
+      if (!href) return;
+
+      var newHref = appendUtmsToUrl(href, utms);
+      if (newHref !== href) {
+        anchor.setAttribute('href', newHref);
+      }
+    }, true); // capture: true para ejecutarse antes de otros handlers
+  }
+
+  // Ejecutar en cuanto el DOM esté listo
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
 </body>
 </html>
