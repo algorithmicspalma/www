@@ -157,6 +157,42 @@
   <p>© 2026 Algorithmics Palma · <a href="politica-de-privacidad.html">Política de privacidad</a> · <a href="politica-de-cookies.html">Política de cookies</a></p>
 </footer>
 
+
+<!-- UTM PROPAGATION -->
+<script>
+(function () {
+  'use strict';
+  var UTM_PARAMS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_id','utm_term'];
+  function getCurrentUtms() {
+    var params = new URLSearchParams(window.location.search);
+    var utms = {};
+    UTM_PARAMS.forEach(function (key) { var val = params.get(key); if (val) utms[key] = val; });
+    return utms;
+  }
+  function appendUtmsToUrl(href, utms) {
+    if (!href) return href;
+    if (/^(#|mailto:|tel:|javascript:)/i.test(href)) return href;
+    try {
+      var url = new URL(href, window.location.origin);
+      Object.keys(utms).forEach(function (key) { if (!url.searchParams.has(key)) url.searchParams.set(key, utms[key]); });
+      return /^https?:\/\//i.test(href) ? url.toString() : url.pathname + url.search + url.hash;
+    } catch (e) { return href; }
+  }
+  function init() {
+    var utms = getCurrentUtms();
+    if (Object.keys(utms).length === 0) return;
+    document.addEventListener('click', function (e) {
+      var anchor = e.target.closest('a');
+      if (!anchor) return;
+      var href = anchor.getAttribute('href');
+      if (!href) return;
+      var newHref = appendUtmsToUrl(href, utms);
+      if (newHref !== href) anchor.setAttribute('href', newHref);
+    }, true);
+  }
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', init); } else { init(); }
+})();
+</script>
 </body>
 </html>
 
