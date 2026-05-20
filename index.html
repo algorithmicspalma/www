@@ -5591,53 +5591,15 @@ function toggleFaq(item) {
   </div>
 </div>
 
-<!-- Google Analytics (carga solo si se acepta) -->
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J2TJW4SYXE"></script>
 <script>
-  const COOKIE_KEY = 'algo_palma_cookies';
-  const GA_ID = 'G-TXCXHPVBJX'; // ← Sustituye por tu ID de Google Analytics
-
-  function loadGA() {
-    const s1 = document.createElement('script');
-    s1.async = true;
-    s1.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
-    document.head.appendChild(s1);
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    window.gtag = gtag;
-    gtag('js', new Date());
-    gtag('config', GA_ID, { anonymize_ip: true });
-  }
-
-  function acceptCookies() {
-    localStorage.setItem(COOKIE_KEY, 'accepted');
-    hideBanner();
-    loadGA();
-  }
-
-  function rejectCookies() {
-    localStorage.setItem(COOKIE_KEY, 'rejected');
-    hideBanner();
-  }
-
-  function hideBanner() {
-    const b = document.getElementById('cookie-banner');
-    b.style.transform = 'translateY(100%)';
-    setTimeout(() => b.style.display = 'none', 400);
-  }
-
-  // Al cargar la página
-  document.addEventListener('DOMContentLoaded', function() {
-    const consent = localStorage.getItem(COOKIE_KEY);
-    if (consent === 'accepted') {
-      loadGA();
-    } else if (!consent) {
-      // Mostrar banner con pequeño retardo para que se vea la animación
-      setTimeout(() => {
-        document.getElementById('cookie-banner').classList.add('visible');
-      }, 800);
-    }
-  });
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-TXCXHPVBJX', { anonymize_ip: true });
 </script>
+
 <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
