@@ -5,8 +5,119 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>¡Gracias! – Algorithmics Palma</title>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary:   #5b2d8e;
+      --accent:    #7c3aed;
+      --accent2:   #a855f7;
+      --light-bg:  #f5f3ff;
+      --text-dark: #12143a;
+      --text-mid:  #4a4e7a;
+      --text-light:#8a8fb5;
+      --grad: linear-gradient(135deg, #4c1d95 0%, #6b21a8 50%, #a855f7 100%);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--text-dark); background: #fff; display: flex; flex-direction: column; min-height: 100vh; }
+    h1,h2,h3,h4 { font-family: 'Space Grotesk', sans-serif; }
+
+    /* NAV */
+    nav {
+      background: var(--primary);
+      padding: 0 24px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 20px rgba(91,45,142,.35);
+    }
+    .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-brand img { height: 34px; width: auto; }
+    .nav-brand span { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.05rem; color: #fff; }
+    .nav-back { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: .85rem; color: rgba(255,255,255,.75); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color .2s; }
+    .nav-back:hover { color: #fff; }
+
+    /* HERO STRIP */
+    .page-hero {
+      background: var(--grad);
+      padding: 56px 24px 48px;
+      text-align: center;
+    }
+    .page-hero .label {
+      display: inline-block;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 50px;
+      padding: 5px 16px;
+      font-size: .75rem;
+      font-weight: 700;
+      color: #e0d4ff;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .page-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; color: #fff; margin-bottom: 12px; }
+    .page-hero p { color: rgba(255,255,255,.72); font-size: .95rem; max-width: 520px; margin: 0 auto; line-height: 1.6; }
+
+    /* CONTENT */
+    .content {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+      flex: 1;
+      width: 100%;
+    }
+
+    /* Check circle */
+    .check-circle {
+      width: 88px; height: 88px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #059669, #10b981);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 28px;
+      box-shadow: 0 8px 32px rgba(5,150,105,.25);
+      animation: bounceIn .6s cubic-bezier(.34,1.56,.64,1) both;
+    }
+    @keyframes bounceIn {
+      from { opacity: 0; transform: scale(0); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+    .check-circle svg { width: 44px; height: 44px; }
+
+    .thanks-title { font-size: clamp(1.6rem, 3.5vw, 2rem); font-weight: 700; color: var(--text-dark); text-align: center; margin-bottom: 12px; }
+    .thanks-sub { text-align: center; color: var(--text-mid); font-size: .98rem; line-height: 1.7; margin-bottom: 40px; }
+    .thanks-sub strong { color: var(--text-dark); }
+
+    /* Next steps */
+    .next-steps { background: var(--light-bg); border-radius: 14px; padding: 24px 26px; margin-bottom: 32px; }
+    .next-steps h3 { font-size: .82rem; font-weight: 700; color: var(--primary); text-transform: uppercase; letter-spacing: .8px; margin-bottom: 16px; }
+    .step { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
+    .step:last-child { margin-bottom: 0; }
+    .step-num { width: 28px; height: 28px; border-radius: 50%; background: var(--grad); color: #fff; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: .8rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+    .step p { font-size: .9rem; color: var(--text-mid); line-height: 1.6; margin: 0; }
+    .step p strong { color: var(--text-dark); }
+
+    /* Buttons */
+    .btn-primary { display: block; background: var(--grad); color: #fff; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: .95rem; padding: 14px 32px; border-radius: 12px; text-decoration: none; text-align: center; margin-bottom: 12px; transition: opacity .2s, transform .2s; box-shadow: 0 6px 24px rgba(124,58,237,.3); }
+    .btn-primary:hover { opacity: .9; transform: translateY(-1px); }
+    .btn-whatsapp { display: flex; align-items: center; justify-content: center; gap: 8px; background: #25D366; color: #fff; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: .95rem; padding: 14px 32px; border-radius: 12px; text-decoration: none; transition: opacity .2s, transform .2s; box-shadow: 0 6px 24px rgba(37,211,102,.25); }
+    .btn-whatsapp:hover { opacity: .9; transform: translateY(-1px); }
+
+    /* FOOTER */
+    footer { background: var(--primary); text-align: center; padding: 28px 24px; }
+    footer p { color: rgba(255,255,255,.5); font-size: .82rem; }
+    footer a { color: rgba(255,255,255,.65); }
+
+    @media (max-width: 480px) {
+      .content { padding: 40px 20px 60px; }
+    }
+  </style>
 </head>
 <body>
+
 <nav>
   <a href="index.html" class="nav-brand">
     <img src="img/logo-a.png" alt="Algorithmics" />
@@ -54,42 +165,6 @@
   <p>© 2026 Algorithmics Palma · <a href="politica-de-privacidad.html">Política de privacidad</a> · <a href="politica-de-cookies.html">Política de cookies</a></p>
 </footer>
 
-
-<!-- UTM PROPAGATION -->
-<script>
-(function () {
-  'use strict';
-  var UTM_PARAMS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_id','utm_term'];
-  function getCurrentUtms() {
-    var params = new URLSearchParams(window.location.search);
-    var utms = {};
-    UTM_PARAMS.forEach(function (key) { var val = params.get(key); if (val) utms[key] = val; });
-    return utms;
-  }
-  function appendUtmsToUrl(href, utms) {
-    if (!href) return href;
-    if (/^(#|mailto:|tel:|javascript:)/i.test(href)) return href;
-    try {
-      var url = new URL(href, window.location.origin);
-      Object.keys(utms).forEach(function (key) { if (!url.searchParams.has(key)) url.searchParams.set(key, utms[key]); });
-      return /^https?:\/\//i.test(href) ? url.toString() : url.pathname + url.search + url.hash;
-    } catch (e) { return href; }
-  }
-  function init() {
-    var utms = getCurrentUtms();
-    if (Object.keys(utms).length === 0) return;
-    document.addEventListener('click', function (e) {
-      var anchor = e.target.closest('a');
-      if (!anchor) return;
-      var href = anchor.getAttribute('href');
-      if (!href) return;
-      var newHref = appendUtmsToUrl(href, utms);
-      if (newHref !== href) anchor.setAttribute('href', newHref);
-    }, true);
-  }
-  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', init); } else { init(); }
-})();
-</script>
 </body>
 </html>
 
