@@ -769,24 +769,57 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .course-card .card-action {
       background: transparent;
       border-top: 1px solid #eef0ff;
-      padding: 14px 18px;
+      padding: 14px 18px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .card-action-row {
       display: flex;
       gap: 8px;
-      flex-wrap: nowrap;
       align-items: center;
     }
-
-    .course-card .card-action a {
+    .card-action-row a {
+      flex: 1;
       font-weight: 700;
       font-size: .78rem;
       text-decoration: none;
       border-radius: 8px;
       padding: 7px 13px;
       white-space: nowrap;
-      flex: 1;
       text-align: center;
       line-height: 1.2;
       transition: all .2s;
+    }
+    .card-btn-schedule {
+      display: block;
+      width: 100%;
+      text-align: center;
+      font-weight: 700;
+      font-size: .75rem;
+      text-decoration: none;
+      border-radius: 8px;
+      padding: 6px 13px;
+      color: var(--text-mid) !important;
+      background: var(--light-bg) !important;
+      border: 1px solid #dde0ff !important;
+      transition: all .2s;
+      line-height: 1.2;
+    }
+    .card-btn-schedule:hover {
+      background: #ede9fe !important;
+      color: var(--accent) !important;
+      border-color: var(--accent) !important;
+    }
+    .course-card.math-card .card-btn-schedule {
+      background: #ecfdf5 !important;
+      border-color: #bbf7d0 !important;
+      color: #065f46 !important;
+    }
+    .course-card.math-card .card-btn-schedule:hover {
+      background: #d1fae5 !important;
+      border-color: #059669 !important;
+      color: #059669 !important;
     }
 
     .card-btn-primary {
@@ -2992,7 +3025,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a href="https://es.alg.academy/palma-contacto" target="_blank" class="btn waves-effect btn-hero-outline">
             <i class="material-icons left">email</i>Contactar
           </a>
-          <a href="https://wa.me/34613093394?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20para%20mi%20hijo%20de%20%3F%20a%C3%B1os." target="_blank" class="btn waves-effect btn-hero-outline" style="background:rgba(37,211,102,.22)!important;border-color:#25d366!important;color:#fff!important;">
+          <a href="https://wa.me/34613093394?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20para%20mi%20hijo%20de%20%3F%20a%C3%B1os." target="_blank" data-wa="hero" class="btn waves-effect btn-hero-outline" style="background:rgba(37,211,102,.22)!important;border-color:#25d366!important;color:#fff!important;">
             <i class="fa-brands fa-whatsapp left" style="font-size:1.1rem;line-height:50px;"></i>WhatsApp
           </a>
         </div>
@@ -3082,7 +3115,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="https://es.alg.academy/palma-contacto" target="_blank" class="btn waves-effect waves-light btn-contact" style="width:100%;border-radius:12px!important;margin:0;">
               <i class="material-icons left">chat_bubble</i>Contactar
             </a>
-            <a href="https://wa.me/34613093394?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Algorithmics%20Palma" target="_blank" class="btn waves-effect waves-light" style="width:100%;border-radius:12px!important;margin:0;background:#25D366!important;color:#fff!important;font-family:'Space Grotesk',sans-serif!important;font-weight:700!important;height:46px!important;line-height:46px!important;">
+            <a href="https://wa.me/34613093394?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Algorithmics%20Palma" target="_blank" data-wa="contacto_sobre" class="btn waves-effect waves-light" style="width:100%;border-radius:12px!important;margin:0;background:#25D366!important;color:#fff!important;font-family:'Space Grotesk',sans-serif!important;font-weight:700!important;height:46px!important;line-height:46px!important;">
               <i class="fa-brands fa-whatsapp left" style="font-size:1.1rem;line-height:46px;"></i>WhatsApp
             </a>
           </div>
@@ -3567,8 +3600,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div class="card-action">
+          <div class="card-action-row">
             <a href="https://es.alg.academy/palma-contacto" target="_blank" class="card-btn-primary">🎓 Clase gratis</a>
             <a href="#" class="card-btn-outline" onclick="event.preventDefault();openCourseModal('fundamentos')">ℹ️ Info curso</a>
+          </div>
+          <a href="horarios.html" class="card-btn-schedule">📅 Ver horarios</a>
           </div>
         </div>
       </div>
@@ -3589,8 +3625,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div class="card-action">
+          <div class="card-action-row">
             <a href="https://es.alg.academy/palma-contacto" target="_blank" class="card-btn-primary">🎓 Clase gratis</a>
             <a href="#" class="card-btn-outline" onclick="event.preventDefault();openCourseModal('alfabetizacion')">ℹ️ Info curso</a>
+          </div>
+          <a href="horarios.html" class="card-btn-schedule">📅 Ver horarios</a>
           </div>
         </div>
       </div>
@@ -3611,8 +3650,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div class="card-action">
+          <div class="card-action-row">
             <a href="https://es.alg.academy/palma-contacto" target="_blank" class="card-btn-primary">🎓 Clase gratis</a>
             <a href="#" class="card-btn-outline" onclick="event.preventDefault();openCourseModal('programacionvisual')">ℹ️ Info curso</a>
+          </div>
+          <a href="horarios.html" class="card-btn-schedule">📅 Ver horarios</a>
           </div>
         </div>
       </div>
@@ -3633,8 +3675,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div class="card-action">
+          <div class="card-action-row">
             <a href="https://es.alg.academy/palma-contacto" target="_blank" class="card-btn-primary">🎓 Clase gratis</a>
             <a href="#" class="card-btn-outline" onclick="event.preventDefault();openCourseModal('minecraft')">ℹ️ Info curso</a>
+          </div>
+          <a href="horarios.html" class="card-btn-schedule">📅 Ver horarios</a>
           </div>
         </div>
       </div>
@@ -3655,8 +3700,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div class="card-action">
+          <div class="card-action-row">
             <a href="https://es.alg.academy/palma-contacto" target="_blank" class="card-btn-primary">🎓 Clase gratis</a>
             <a href="#" class="card-btn-outline" onclick="event.preventDefault();openCourseModal('disenografico')">ℹ️ Info curso</a>
+          </div>
+          <a href="horarios.html" class="card-btn-schedule">📅 Ver horarios</a>
           </div>
         </div>
       </div>
@@ -3677,8 +3725,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div class="card-action">
+          <div class="card-action-row">
             <a href="https://es.alg.academy/palma-contacto" target="_blank" class="card-btn-primary">🎓 Clase gratis</a>
             <a href="#" class="card-btn-outline" onclick="event.preventDefault();openCourseModal('roblox')">ℹ️ Info curso</a>
+          </div>
+          <a href="horarios.html" class="card-btn-schedule">📅 Ver horarios</a>
           </div>
         </div>
       </div>
@@ -3699,8 +3750,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div class="card-action">
+          <div class="card-action-row">
             <a href="https://es.alg.academy/palma-contacto" target="_blank" class="card-btn-primary">🎓 Clase gratis</a>
             <a href="#" class="card-btn-outline" onclick="event.preventDefault();openCourseModal('disenoweb')">ℹ️ Info curso</a>
+          </div>
+          <a href="horarios.html" class="card-btn-schedule">📅 Ver horarios</a>
           </div>
         </div>
       </div>
@@ -3721,8 +3775,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div class="card-action">
+          <div class="card-action-row">
             <a href="https://es.alg.academy/palma-contacto" target="_blank" class="card-btn-primary">🎓 Clase gratis</a>
             <a href="#" class="card-btn-outline" onclick="event.preventDefault();openCourseModal('pythonstart')">ℹ️ Info curso</a>
+          </div>
+          <a href="horarios.html" class="card-btn-schedule">📅 Ver horarios</a>
           </div>
         </div>
       </div>
@@ -3743,8 +3800,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div class="card-action">
+          <div class="card-action-row">
             <a href="https://es.alg.academy/palma-contacto" target="_blank" class="card-btn-primary">🎓 Clase gratis</a>
             <a href="#" class="card-btn-outline" onclick="event.preventDefault();openCourseModal('ia')">ℹ️ Info curso</a>
+          </div>
+          <a href="horarios.html" class="card-btn-schedule">📅 Ver horarios</a>
           </div>
         </div>
       </div>
@@ -3765,8 +3825,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div class="card-action">
+          <div class="card-action-row">
             <a href="https://es.alg.academy/palma-contacto" target="_blank" class="card-btn-primary">🎓 Clase gratis</a>
             <a href="#" class="card-btn-outline" onclick="event.preventDefault();openCourseModal('unity')">ℹ️ Info curso</a>
+          </div>
+          <a href="horarios.html" class="card-btn-schedule">📅 Ver horarios</a>
           </div>
         </div>
       </div>
@@ -3787,8 +3850,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div class="card-action">
+          <div class="card-action-row">
             <a href="https://es.alg.academy/palma-contacto" target="_blank" class="card-btn-primary">🎓 Clase gratis</a>
             <a href="#" class="card-btn-outline" onclick="event.preventDefault();openCourseModal('pythonpro')">ℹ️ Info curso</a>
+          </div>
+          <a href="horarios.html" class="card-btn-schedule">📅 Ver horarios</a>
           </div>
         </div>
       </div>
@@ -3809,8 +3875,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div class="card-action">
+          <div class="card-action-row">
             <a href="https://es.alg.academy/palma-contacto" target="_blank" class="card-btn-primary">🎓 Clase gratis</a>
             <a href="#" class="card-btn-outline" onclick="event.preventDefault();openCourseModal('frontend')">ℹ️ Info curso</a>
+          </div>
+          <a href="horarios.html" class="card-btn-schedule">📅 Ver horarios</a>
           </div>
         </div>
       </div>
@@ -3838,8 +3907,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div class="card-action">
+          <div class="card-action-row">
             <a href="https://es.alg.academy/palma-contacto" target="_blank" class="card-btn-primary">🎓 Clase gratis</a>
             <a href="#" class="card-btn-outline" onclick="event.preventDefault();openCourseModal('mates1')">ℹ️ Info curso</a>
+          </div>
+          <a href="horarios.html" class="card-btn-schedule">📅 Ver horarios</a>
           </div>
         </div>
       </div>
@@ -3860,8 +3932,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
           </div>
           <div class="card-action">
+          <div class="card-action-row">
             <a href="https://es.alg.academy/palma-contacto" target="_blank" class="card-btn-primary">🎓 Clase gratis</a>
             <a href="#" class="card-btn-outline" onclick="event.preventDefault();openCourseModal('mates2')">ℹ️ Info curso</a>
+          </div>
+          <a href="horarios.html" class="card-btn-schedule">📅 Ver horarios</a>
           </div>
         </div>
       </div>
@@ -4317,7 +4392,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <div class="summer-age-badge">👦👧 6–14 años</div>
               <a href="https://es.alg.academy/palma-verano" target="_blank" class="btn waves-effect btn-summer-primary">☀️ Ver toda la info</a>
               <a href="https://es.alg.academy/inscripcion-online" target="_blank" class="btn waves-effect btn-summer-outline">Solicitar plaza</a>
-              <a href="https://wa.me/34613093394?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20del%20campamento%20de%20verano." target="_blank" class="btn waves-effect btn-summer-outline" style="background:rgba(37,211,102,.22)!important;border-color:#25d366!important;color:#fff!important;"><i class="fa-brands fa-whatsapp left" style="font-size:1.1rem;line-height:50px;"></i>WhatsApp</a>
+              <a href="https://wa.me/34613093394?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20del%20campamento%20de%20verano." target="_blank" data-wa="campus_banner" class="btn waves-effect btn-summer-outline" style="background:rgba(37,211,102,.22)!important;border-color:#25d366!important;color:#fff!important;"><i class="fa-brands fa-whatsapp left" style="font-size:1.1rem;line-height:50px;"></i>WhatsApp</a>
             </div>
           </div>
         </div>
@@ -4450,7 +4525,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="https://es.alg.academy/inscripcion-online" target="_blank" class="btn waves-effect waves-light" style="border-radius:12px!important;background:var(--light-bg)!important;color:var(--accent)!important;font-family:'Space Grotesk',sans-serif!important;font-weight:700!important;height:50px!important;line-height:50px!important;padding:0 20px!important;">
               📋 Reservar plaza
             </a>
-            <a href="https://wa.me/34613093394?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20del%20campamento%20de%20verano." target="_blank" class="btn waves-effect waves-light" style="border-radius:12px!important;background:#25d366!important;color:#fff!important;font-family:'Space Grotesk',sans-serif!important;font-weight:700!important;height:50px!important;line-height:50px!important;padding:0 16px!important;">
+            <a href="https://wa.me/34613093394?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20del%20campamento%20de%20verano." target="_blank" data-wa="campus_cta" class="btn waves-effect waves-light" style="border-radius:12px!important;background:#25d366!important;color:#fff!important;font-family:'Space Grotesk',sans-serif!important;font-weight:700!important;height:50px!important;line-height:50px!important;padding:0 16px!important;">
               <i class="fa-brands fa-whatsapp" style="margin-right:6px;font-size:1.1rem;"></i>WhatsApp
             </a>
           </div>
@@ -4513,7 +4588,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <a href="https://es.alg.academy/inscripcion-online" target="_blank" class="btn waves-effect" style="width:100%;background:transparent!important;color:#fff!important;border:2px solid rgba(255,255,255,.5)!important;font-family:'Space Grotesk',sans-serif!important;font-weight:700!important;border-radius:12px!important;height:46px!important;line-height:42px!important;margin-bottom:10px;">
                   Reservar plaza
                 </a>
-                <a href="https://wa.me/34613093394?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20de%20los%20cursos%20de%20verano." target="_blank" class="btn waves-effect" style="width:100%;background:rgba(37,211,102,.25)!important;color:#fff!important;border:2px solid #25d366!important;font-family:'Space Grotesk',sans-serif!important;font-weight:700!important;border-radius:12px!important;height:46px!important;line-height:42px!important;">
+                <a href="https://wa.me/34613093394?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20de%20los%20cursos%20de%20verano." target="_blank" data-wa="cursos_online_verano" class="btn waves-effect" style="width:100%;background:rgba(37,211,102,.25)!important;color:#fff!important;border:2px solid #25d366!important;font-family:'Space Grotesk',sans-serif!important;font-weight:700!important;border-radius:12px!important;height:46px!important;line-height:42px!important;">
                   <i class="fa-brands fa-whatsapp" style="margin-right:6px;font-size:1.1rem;"></i>WhatsApp
                 </a>
               </div>
@@ -4826,7 +4901,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <a href="https://es.alg.academy/palma-contacto" target="_blank" class="btn waves-effect waves-light btn-contact">
             <i class="material-icons left">chat_bubble</i>Contactar con nosotros
           </a>
-          <a href="https://wa.me/34613093394?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20Algorithmics%20Palma" target="_blank" class="btn waves-effect waves-light" style="background:#25D366!important;color:#fff!important;font-family:'Space Grotesk',sans-serif!important;font-weight:700!important;border-radius:10px!important;height:50px!important;line-height:50px!important;padding:0 36px!important;box-shadow:0 4px 18px rgba(37,211,102,.35)!important;">
+          <a href="https://wa.me/34613093394?text=Hola%2C%20tengo%20una%20pregunta%20sobre%20Algorithmics%20Palma" target="_blank" data-wa="faq" class="btn waves-effect waves-light" style="background:#25D366!important;color:#fff!important;font-family:'Space Grotesk',sans-serif!important;font-weight:700!important;border-radius:10px!important;height:50px!important;line-height:50px!important;padding:0 36px!important;box-shadow:0 4px 18px rgba(37,211,102,.35)!important;">
             <i class="fa-brands fa-whatsapp left" style="font-size:1.1rem;line-height:50px;"></i>WhatsApp
           </a>
         </div>
@@ -5415,7 +5490,7 @@ function openCourseModal(id) {
     </div>
     <div class="modal-actions">
       <a href="https://es.alg.academy/palma-contacto" target="_blank" class="modal-btn-primary">🎓 Solicitar clase gratis</a>
-      <a href="https://wa.me/34613093394?text=${waText}" target="_blank" class="modal-btn-outline" style="background:#25D366;color:#fff;border-color:#25D366;" onmouseover="this.style.background='#1ebe5a';this.style.borderColor='#1ebe5a'" onmouseout="this.style.background='#25D366';this.style.borderColor='#25D366'">
+      <a href="https://wa.me/34613093394?text=${waText}" target="_blank" data-wa="modal_curso" class="modal-btn-outline" style="background:#25D366;color:#fff;border-color:#25D366;" onmouseover="this.style.background='#1ebe5a';this.style.borderColor='#1ebe5a'" onmouseout="this.style.background='#25D366';this.style.borderColor='#25D366'">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15" height="15" fill="white" style="vertical-align:middle;margin-right:5px;margin-bottom:2px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.124 1.532 5.857L.054 23.447a.5.5 0 0 0 .612.612l5.598-1.476A11.953 11.953 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.866 9.866 0 0 1-5.031-1.378l-.36-.214-3.732.984.997-3.648-.235-.374A9.865 9.865 0 0 1 2.106 12C2.106 6.533 6.533 2.106 12 2.106c5.466 0 9.894 4.427 9.894 9.894 0 5.466-4.428 9.894-9.894 9.894z"/></svg>WhatsApp
       </a>
     </div>
@@ -5621,6 +5696,7 @@ function toggleFaq(item) {
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "ws3574w7ao");
 </script>
+<!-- Metricool -->
 <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"c64901ff340e1d9063354398aac4cce7"})});</script>
 
 <!-- ═══════════════════════════════════════════
@@ -5721,3 +5797,15 @@ function toggleFaq(item) {
 </script>
 </body>
 
+<!-- WhatsApp click tracking -->
+<script>
+document.addEventListener('click', function(e) {
+  var btn = e.target.closest('[data-wa]');
+  if (!btn) return;
+  if (typeof gtag !== 'function') return;
+  gtag('event', 'whatsapp_click', {
+    event_category: 'whatsapp',
+    event_label: btn.getAttribute('data-wa')
+  });
+});
+</script>
