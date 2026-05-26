@@ -3019,7 +3019,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <!-- Bottom: botones + stats a ancho completo -->
       <div class="col s12 hero-content" style="padding:0 0 28px;order:3;">
         <div class="hero-btns" style="margin-bottom:1.8rem;">
-          <a href="https://es.alg.academy/inscripcion-online" target="_blank" class="btn waves-effect btn-hero-primary">
+          <a href="https://es.alg.academy/inscripcion-online" target="_blank" data-insc="hero" class="btn waves-effect btn-hero-primary">
             <i class="material-icons left">event_available</i>Inscripciones y precios
           </a>
           <a href="https://es.alg.academy/palma-contacto" target="_blank" class="btn waves-effect btn-hero-outline">
@@ -4391,7 +4391,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="summer-beach-bottom">
               <div class="summer-age-badge">👦👧 6–14 años</div>
               <a href="https://es.alg.academy/palma-verano" target="_blank" class="btn waves-effect btn-summer-primary">☀️ Ver toda la info</a>
-              <a href="https://es.alg.academy/inscripcion-online" target="_blank" class="btn waves-effect btn-summer-outline">Solicitar plaza</a>
+              <a href="https://es.alg.academy/inscripcion-online" target="_blank" data-insc="campus_banner" class="btn waves-effect btn-summer-outline">Solicitar plaza</a>
               <a href="https://wa.me/34613093394?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20del%20campamento%20de%20verano." target="_blank" data-wa="campus_banner" class="btn waves-effect btn-summer-outline" style="background:rgba(37,211,102,.22)!important;border-color:#25d366!important;color:#fff!important;"><i class="fa-brands fa-whatsapp left" style="font-size:1.1rem;line-height:50px;"></i>WhatsApp</a>
             </div>
           </div>
@@ -4522,7 +4522,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <a href="https://es.alg.academy/palma-verano" target="_blank" class="btn waves-effect waves-light btn-contact" style="border-radius:12px!important;">
               <i class="material-icons left">open_in_new</i>Ver toda la info
             </a>
-            <a href="https://es.alg.academy/inscripcion-online" target="_blank" class="btn waves-effect waves-light" style="border-radius:12px!important;background:var(--light-bg)!important;color:var(--accent)!important;font-family:'Space Grotesk',sans-serif!important;font-weight:700!important;height:50px!important;line-height:50px!important;padding:0 20px!important;">
+            <a href="https://es.alg.academy/inscripcion-online" target="_blank" data-insc="campus_cta" class="btn waves-effect waves-light" style="border-radius:12px!important;background:var(--light-bg)!important;color:var(--accent)!important;font-family:'Space Grotesk',sans-serif!important;font-weight:700!important;height:50px!important;line-height:50px!important;padding:0 20px!important;">
               📋 Reservar plaza
             </a>
             <a href="https://wa.me/34613093394?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20del%20campamento%20de%20verano." target="_blank" data-wa="campus_cta" class="btn waves-effect waves-light" style="border-radius:12px!important;background:#25d366!important;color:#fff!important;font-family:'Space Grotesk',sans-serif!important;font-weight:700!important;height:50px!important;line-height:50px!important;padding:0 16px!important;">
@@ -4585,7 +4585,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <a href="https://es.alg.academy/cursos-verano" target="_blank" class="btn waves-effect" style="width:100%;background:#fff!important;color:var(--primary)!important;font-family:'Space Grotesk',sans-serif!important;font-weight:700!important;border-radius:12px!important;height:46px!important;line-height:46px!important;margin-bottom:10px;box-shadow:0 4px 16px rgba(0,0,0,.18)!important;">
                   🌐 Ver cursos online
                 </a>
-                <a href="https://es.alg.academy/inscripcion-online" target="_blank" class="btn waves-effect" style="width:100%;background:transparent!important;color:#fff!important;border:2px solid rgba(255,255,255,.5)!important;font-family:'Space Grotesk',sans-serif!important;font-weight:700!important;border-radius:12px!important;height:46px!important;line-height:42px!important;margin-bottom:10px;">
+                <a href="https://es.alg.academy/inscripcion-online" target="_blank" data-insc="cursos_online_verano" class="btn waves-effect" style="width:100%;background:transparent!important;color:#fff!important;border:2px solid rgba(255,255,255,.5)!important;font-family:'Space Grotesk',sans-serif!important;font-weight:700!important;border-radius:12px!important;height:46px!important;line-height:42px!important;margin-bottom:10px;">
                   Reservar plaza
                 </a>
                 <a href="https://wa.me/34613093394?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20de%20los%20cursos%20de%20verano." target="_blank" data-wa="cursos_online_verano" class="btn waves-effect" style="width:100%;background:rgba(37,211,102,.25)!important;color:#fff!important;border:2px solid #25d366!important;font-family:'Space Grotesk',sans-serif!important;font-weight:700!important;border-radius:12px!important;height:46px!important;line-height:42px!important;">
@@ -5806,6 +5806,18 @@ document.addEventListener('click', function(e) {
   gtag('event', 'whatsapp_click', {
     event_category: 'whatsapp',
     event_label: btn.getAttribute('data-wa')
+  });
+});
+</script>
+<!-- Inscripciones click tracking -->
+<script>
+document.addEventListener('click', function(e) {
+  var btn = e.target.closest('[data-insc]');
+  if (!btn) return;
+  if (typeof gtag !== 'function') return;
+  gtag('event', 'boton_inscripciones', {
+    event_category: 'inscripciones',
+    event_label: btn.getAttribute('data-insc')
   });
 });
 </script>
