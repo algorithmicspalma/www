@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diseño de Videojuegos con Roblox (10–13 años) · Algorithmics Palma</title>
+<meta name="description" content="Tu hijo/a aprende a crear sus propios juegos de Roblox: scripts en Lua, diseño 3D y guion. Clase de prueba gratuita en Palma de Mallorca o en modalidad online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-deep:#0E1327;
+    --bg-panel:#161B33;
+    --bg-panel-alt:#1B2140;
+    --line: rgba(198,255,61,.16);
+    --line-strong: rgba(198,255,61,.35);
+    --accent-lime:#C6FF3D;
+    --accent-lime-dim:#94C22A;
+    --accent-coral:#FF5C72;
+    --text:#F5F6FA;
+    --text-muted:#9098BA;
+    --radius:14px;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg-deep);
+    color:var(--text);
+    font-family:'Inter',system-ui,sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Chakra Petch','Inter',sans-serif;
+    letter-spacing:.01em;
+    margin:0;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Chakra Petch',sans-serif;
+    font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--accent-lime);
+    margin-bottom:18px;
+  }
+  .eyebrow::before{content:"";width:8px;height:8px;background:var(--accent-lime);display:inline-block;transform:rotate(45deg);}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:15px 28px;border-radius:10px;font-weight:700;
+    font-family:'Chakra Petch',sans-serif;font-size:16px;letter-spacing:.02em;
+    text-decoration:none;cursor:pointer;border:2px solid transparent;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .btn:active{transform:translateY(1px);}
+  .btn-primary{background:var(--accent-lime);color:#0E1327;box-shadow:0 0 0 0 rgba(198,255,61,.5);}
+  .btn-primary:hover{box-shadow:0 6px 24px rgba(198,255,61,.28);}
+  .btn-ghost{background:transparent;border-color:rgba(245,246,250,.25);color:var(--text);}
+  .btn-ghost:hover{border-color:var(--accent-lime);color:var(--accent-lime);}
+
+  /* header */
+  header.site{
+    position:sticky;top:0;z-index:50;
+    background:rgba(14,19,39,.86);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  header.site .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;}
+  .logo{font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:18px;letter-spacing:.02em;}
+  .logo span{color:var(--accent-lime);}
+  header.site nav{display:flex;align-items:center;gap:26px;}
+  header.site nav a.navlink{font-size:14px;color:var(--text-muted);text-decoration:none;}
+  header.site nav a.navlink:hover{color:var(--text);}
+  .header-cta{display:flex;gap:12px;}
+  @media (max-width:760px){
+    header.site nav a.navlink{display:none;}
+  }
+
+  /* hero */
+  .hero{
+    position:relative;overflow:hidden;
+    padding:96px 0 80px;
+    background:
+      radial-gradient(circle at 82% 8%, rgba(198,255,61,.10), transparent 45%),
+      radial-gradient(circle at 10% 90%, rgba(255,92,114,.08), transparent 40%),
+      var(--bg-deep);
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:44px 44px;
+    mask-image:linear-gradient(to bottom, rgba(0,0,0,.9), transparent 78%);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;}
+  @media (max-width:900px){.hero-inner{grid-template-columns:1fr;}}
+  .hero h1{font-size:clamp(34px,4.6vw,54px);line-height:1.06;font-weight:700;}
+  .hero h1 em{font-style:normal;color:var(--accent-lime);}
+  .hero p.lead{font-size:18px;color:var(--text-muted);margin:22px 0 30px;max-width:52ch;}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:30px;}
+  .hero-stats{display:flex;gap:28px;flex-wrap:wrap;}
+  .hero-stats div{}
+  .hero-stats .num{font-family:'Chakra Petch',sans-serif;font-size:26px;font-weight:700;color:var(--text);}
+  .hero-stats .lbl{font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;}
+
+  /* hero visual: blueprint "build panel" */
+  .build-panel{
+    border:1px solid var(--line-strong);
+    background:linear-gradient(180deg, var(--bg-panel), var(--bg-panel-alt));
+    border-radius:var(--radius);
+    padding:26px;
+    position:relative;
+  }
+  .build-panel .dot-row{display:flex;gap:6px;margin-bottom:18px;}
+  .build-panel .dot-row span{width:9px;height:9px;border-radius:50%;background:rgba(245,246,250,.18);}
+  .build-panel .dot-row span:first-child{background:var(--accent-coral);}
+  .build-panel .code-line{font-family:'Chakra Petch',monospace;font-size:13px;color:var(--accent-lime);margin:4px 0;white-space:pre;}
+  .build-panel .code-line .muted{color:var(--text-muted);}
+  .build-panel .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+  .chip{
+    font-size:12px;font-family:'Chakra Petch',sans-serif;letter-spacing:.03em;
+    border:1px solid var(--line-strong);color:var(--text-muted);
+    padding:6px 12px;border-radius:100px;
+  }
+
+  section{padding:76px 0;}
+  .section-head{max-width:640px;margin-bottom:44px;}
+  .section-head h2{font-size:clamp(26px,3.2vw,36px);font-weight:700;line-height:1.15;}
+  .section-head p{color:var(--text-muted);margin-top:14px;font-size:16px;}
+
+  /* skills */
+  .skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  @media (max-width:900px){.skills-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.skills-grid{grid-template-columns:1fr;}}
+  .skill-card{
+    background:var(--bg-panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px 20px;
+  }
+  .skill-card .mark{font-family:'Chakra Petch',sans-serif;color:var(--accent-lime);font-size:13px;margin-bottom:14px;}
+  .skill-card h3{font-size:17px;margin-bottom:8px;}
+  .skill-card p{color:var(--text-muted);font-size:14px;margin:0;}
+
+  /* path / modules — signature element */
+  .path-wrap{position:relative;}
+  .path-line{
+    position:absolute;left:27px;top:8px;bottom:8px;width:2px;
+    background:repeating-linear-gradient(to bottom, var(--accent-lime) 0 6px, transparent 6px 14px);
+  }
+  @media (max-width:700px){.path-line{left:19px;}}
+  .path-node{
+    position:relative;display:flex;gap:22px;padding:0 0 40px 0;
+  }
+  .path-node:last-child{padding-bottom:0;}
+  .path-badge{
+    flex:none;width:56px;height:56px;border-radius:50%;
+    background:var(--bg-panel);border:2px solid var(--accent-lime);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Chakra Petch',sans-serif;font-weight:700;color:var(--accent-lime);font-size:18px;
+    z-index:1;
+  }
+  @media (max-width:700px){.path-badge{width:40px;height:40px;font-size:14px;}}
+  .path-card{
+    background:var(--bg-panel);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px 22px;flex:1;
+  }
+  .path-card h3{font-size:16px;margin-bottom:6px;}
+  .path-card p{color:var(--text-muted);font-size:14px;margin:0;}
+
+  /* details */
+  .details-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  @media (max-width:800px){.details-grid{grid-template-columns:1fr;}}
+  .modality-card{
+    border:1px solid var(--line);border-radius:var(--radius);padding:26px;background:var(--bg-panel);
+  }
+  .modality-card h3{font-size:19px;margin-bottom:10px;color:var(--accent-lime);}
+  .modality-card ul{margin:14px 0 0;padding-left:18px;color:var(--text-muted);font-size:14px;}
+  .modality-card li{margin-bottom:6px;}
+
+  /* trust strip */
+  .trust{
+    display:flex;flex-wrap:wrap;gap:0;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .trust div{
+    flex:1;min-width:150px;padding:26px 20px;text-align:center;border-right:1px solid var(--line);
+  }
+  .trust div:last-child{border-right:none;}
+  .trust .num{font-family:'Chakra Petch',sans-serif;font-size:24px;font-weight:700;color:var(--accent-lime);}
+  .trust .lbl{font-size:12px;color:var(--text-muted);margin-top:4px;}
+
+  /* form */
+  .form-section{
+    background:linear-gradient(180deg, var(--bg-panel), var(--bg-deep));
+    border-top:1px solid var(--line);
+  }
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+  @media (max-width:860px){.form-grid{grid-template-columns:1fr;}}
+  .form-side h2{font-size:clamp(26px,3.4vw,36px);margin-bottom:16px;}
+  .form-side p{color:var(--text-muted);margin-bottom:22px;}
+  .form-side .whatsapp{
+    display:inline-flex;align-items:center;gap:10px;color:var(--accent-lime);text-decoration:none;font-weight:600;font-size:14px;
+  }
+  form#leadForm{
+    background:var(--bg-panel);border:1px solid var(--line-strong);border-radius:var(--radius);
+    padding:28px;
+  }
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:13px;color:var(--text-muted);margin-bottom:6px;font-family:'Chakra Petch',sans-serif;letter-spacing:.02em;}
+  .field input, .field select, .field textarea{
+    width:100%;background:var(--bg-deep);border:1px solid rgba(245,246,250,.16);border-radius:8px;
+    padding:12px 14px;color:var(--text);font-family:'Inter',sans-serif;font-size:15px;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{
+    outline:2px solid var(--accent-lime);outline-offset:1px;border-color:var(--accent-lime);
+  }
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media (max-width:520px){.field-row{grid-template-columns:1fr;}}
+  .consent{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:var(--text-muted);margin:18px 0;}
+  .consent input{margin-top:3px;}
+  .consent a{color:var(--accent-lime);text-decoration:underline;}
+  #formMsg{margin-top:14px;font-size:14px;}
+  #formMsg.ok{color:var(--accent-lime);}
+  #formMsg.err{color:var(--accent-coral);}
+  .submit-btn{width:100%;}
+
+  footer{
+    padding:48px 0 32px;border-top:1px solid var(--line);
+    color:var(--text-muted);font-size:13px;
+  }
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;}
+  footer a{color:var(--text-muted);text-decoration:none;}
+  footer a:hover{color:var(--accent-lime);}
+  footer .cols{display:flex;gap:48px;flex-wrap:wrap;}
+  footer h4{font-family:'Chakra Petch',sans-serif;color:var(--text);font-size:13px;margin-bottom:10px;letter-spacing:.05em;text-transform:uppercase;}
+  footer .legal{margin-top:32px;font-size:12px;opacity:.7;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <div class="logo">ALGORITHMICS <span>PALMA</span></div>
+    <nav>
+      <a class="navlink" href="#curso">El curso</a>
+      <a class="navlink" href="#modulos">Módulos</a>
+      <a class="navlink" href="#modalidades">Modalidades</a>
+      <a class="navlink" href="#form">Contacto</a>
+    </nav>
+    <div class="header-cta">
+      <a class="btn btn-ghost" href="https://wa.me/34613093394?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20del%20curso%20de%20Roblox" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn btn-primary" href="#form">Clase gratis</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <div class="eyebrow">Ruta Videojuegos · Roblox · 10–13 años</div>
+      <h1>Tu hijo/a no juega a Roblox.<br><em>Lo construye.</em></h1>
+      <p class="lead">Un curso de un año donde aprende a diseñar mundos, escribir scripts en Lua y publicar sus propios juegos en Roblox Studio. En nuestra academia de Palma de Mallorca o en modalidad online.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#form">Reservar clase de prueba gratis</a>
+        <a class="btn btn-ghost" href="#modulos">Ver plan de estudios</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="num">90'</div><div class="lbl">clase semanal</div></div>
+        <div><div class="num">12</div><div class="lbl">alumnos por grupo</div></div>
+        <div><div class="num">7</div><div class="lbl">módulos en el curso</div></div>
+        <div><div class="num">10–13</div><div class="lbl">años</div></div>
+      </div>
+    </div>
+    <div class="build-panel">
+      <div class="dot-row"><span></span><span></span><span></span></div>
+      <div class="code-line"><span class="muted">-- Módulo 3 · Creando un Quest</span></div>
+      <div class="code-line">local quest = Quest.new(<span class="muted">"Encuentra la llave"</span>)</div>
+      <div class="code-line">quest:onComplete(<span class="muted">function()</span></div>
+      <div class="code-line">&nbsp;&nbsp;player:giveReward(50)</div>
+      <div class="code-line"><span class="muted">end)</span></div>
+      <div class="chips">
+        <span class="chip">Lua</span>
+        <span class="chip">Roblox Studio</span>
+        <span class="chip">Diseño 3D</span>
+        <span class="chip">Guion</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="curso">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>¿Qué aprenderá tu hijo/a?</h2>
+      <p>No es solo jugar: es organizar, escribir y sacar adelante un proyecto propio de principio a fin.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="mark">01</div>
+        <h3>Programar en Lua</h3>
+        <p>Escribe los scripts que dan vida a su juego: lógica, puzles y mecánicas basadas en condiciones.</p>
+      </div>
+      <div class="skill-card">
+        <div class="mark">02</div>
+        <h3>Diseño 3D</h3>
+        <p>Construye escenarios y personajes en Roblox Studio, aplicando geometría y sistemas de coordenadas.</p>
+      </div>
+      <div class="skill-card">
+        <div class="mark">03</div>
+        <h3>Guion y narrativa</h3>
+        <p>Redacta las historias, diálogos y misiones que enganchan a los jugadores de su juego.</p>
+      </div>
+      <div class="skill-card">
+        <div class="mark">04</div>
+        <h3>Visión espacial</h3>
+        <p>Desarrolla pensamiento computacional y de ingeniería resolviendo retos de diseño reales.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="modulos">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>El camino hasta su primer juego publicado</h2>
+      <p>Un curso académico completo, dividido en 7 módulos de dificultad creciente.</p>
+    </div>
+    <div class="path-wrap">
+      <div class="path-line"></div>
+      <div class="path-node"><div class="path-badge">1</div><div class="path-card"><h3>El mundo de Roblox</h3><p>Primeros pasos en Roblox Studio: interfaz, herramientas básicas y su primer escenario.</p></div></div>
+      <div class="path-node"><div class="path-badge">2</div><div class="path-card"><h3>Diseñando tu juego</h3><p>Planifica su propio juego: mecánicas, objetivos y estructura del proyecto.</p></div></div>
+      <div class="path-node"><div class="path-badge">3</div><div class="path-card"><h3>Creando un Quest</h3><p>Programa misiones, diálogos y recompensas con scripts en Lua.</p></div></div>
+      <div class="path-node"><div class="path-badge">4</div><div class="path-card"><h3>Dominar el diseño</h3><p>Perfecciona escenarios, personajes e interacciones más avanzadas.</p></div></div>
+      <div class="path-node"><div class="path-badge">5</div><div class="path-card"><h3>Juegos multijugador</h3><p>Añade lógica compartida para que varios jugadores interactúen a la vez.</p></div></div>
+      <div class="path-node"><div class="path-badge">6</div><div class="path-card"><h3>El mundo de las carreras</h3><p>Diseña circuitos y mecánicas propias de un juego de carreras.</p></div></div>
+      <div class="path-node"><div class="path-badge">7</div><div class="path-card"><h3>Un nuevo nivel</h3><p>Cierra y pule su proyecto final, listo para presentarlo a la comunidad.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="modalidades">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Presencial en Palma u online, tú eliges</h2>
+      <p>Mismo contenido, mismo acompañamiento, con acceso 24/7 a la plataforma educativa.</p>
+    </div>
+    <div class="details-grid">
+      <div class="modality-card">
+        <h3>Modalidad presencial</h3>
+        <ul>
+          <li>En nuestra academia, C/ Marqués de Fontsanta 37, Palma</li>
+          <li>Grupos reducidos de hasta 12 alumnos</li>
+          <li>Aula gaming equipada con PCs de alto rendimiento</li>
+          <li>Todo el material lo ponemos nosotros</li>
+        </ul>
+      </div>
+      <div class="modality-card">
+        <h3>Modalidad online</h3>
+        <ul>
+          <li>Clase en directo desde cualquier lugar</li>
+          <li>Misma duración: sesiones de 90 minutos</li>
+          <li>Acceso 24/7 a la plataforma educativa</li>
+          <li>Seguimiento personalizado del profesor</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="trust">
+    <div><div class="num">60+</div><div class="lbl">países</div></div>
+    <div><div class="num">100%</div><div class="lbl">proyectos reales</div></div>
+    <div><div class="num">1</div><div class="lbl">clase de prueba gratis</div></div>
+    <div><div class="num">Oficial</div><div class="lbl">diploma Algorithmics</div></div>
+  </div>
+</div>
+
+<section class="form-section" id="form">
+  <div class="wrap form-grid">
+    <div class="form-side">
+      <div class="eyebrow">Último paso</div>
+      <h2>Reserva su clase de prueba gratis</h2>
+      <p>Rellena el formulario y te llamamos para conocer el nivel e intereses de tu hijo/a, resolver dudas y reservar plaza sin compromiso.</p>
+      <a class="whatsapp" href="https://wa.me/34613093394?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20del%20curso%20de%20Roblox" target="_blank" rel="noopener">→ Prefiero escribir por WhatsApp</a>
+    </div>
+    <div>
+      <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+      <form id="leadForm" method="POST" action="https://script.google.com/macros/s/AKfycbzWeM1pL-fgykhPw17oByx11pM17Z7UEpubCc0BkkuSSg3OJh3l_q_D-IMf00VaX1cZ/exec" target="hidden_iframe">
+        <div class="field-row">
+          <div class="field">
+            <label for="nombre">Nombre y apellidos</label>
+            <input type="text" id="nombre" name="nombre" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" required autocomplete="tel">
+          </div>
+        </div>
+        <div class="field">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="edad">Edad del alumno/a</label>
+            <select id="edad" name="edad" required>
+              <option value="">Selecciona</option>
+              <option>9 o menos</option>
+              <option>10</option>
+              <option>11</option>
+              <option>12</option>
+              <option>13</option>
+              <option>14 o más</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="modalidad">Modalidad de interés</label>
+            <select id="modalidad" name="modalidad" required>
+              <option value="">Selecciona</option>
+              <option>Presencial (Palma)</option>
+              <option>Online</option>
+              <option>Aún no lo sé</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="mensaje">Cuéntanos algo más (opcional)</label>
+          <textarea id="mensaje" name="mensaje" rows="3"></textarea>
+        </div>
+
+        <!-- Campos ocultos para medir el origen del lead -->
+        <input type="hidden" id="pagina" name="pagina">
+        <input type="hidden" id="utm_source" name="utm_source">
+        <input type="hidden" id="utm_medium" name="utm_medium">
+        <input type="hidden" id="utm_campaign" name="utm_campaign">
+        <input type="hidden" id="fecha" name="fecha">
+
+        <label class="consent">
+          <input type="checkbox" required>
+          <span>He leído y acepto la <a href="https://algorithmicspalma.com/politica-de-privacidad.html" target="_blank" rel="noopener">política de privacidad</a> de Algorithmics Palma.</span>
+        </label>
+
+        <button class="btn btn-primary submit-btn" type="submit" id="submitBtn">Quiero la clase gratis</button>
+        <div id="formMsg" role="status"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>Algorithmics Palma</h4>
+        <p style="max-width:28ch;">C/ Marqués de Fontsanta, 37<br>07005 Palma de Mallorca</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p><a href="tel:+34613093394">613 09 33 94</a><br><a href="mailto:palma@algoacademy.es">palma@algoacademy.es</a></p>
+      </div>
+      <div>
+        <h4>Web</h4>
+        <p><a href="https://algorithmicspalma.com" target="_blank" rel="noopener">algorithmicspalma.com</a></p>
+      </div>
+      <div>
+        <h4>Síguenos</h4>
+        <p><a href="https://www.instagram.com/algopalma" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/algopalma" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.tiktok.com/@algorithmicspalma" target="_blank" rel="noopener">TikTok</a></p>
+      </div>
+    </div>
+    <div class="legal">
+      © 2026 Algorithmics Palma · <a href="https://algorithmicspalma.com/politica-de-privacidad.html" target="_blank" rel="noopener">Política de privacidad</a> · <a href="https://algorithmicspalma.com/politica-de-cookies.html" target="_blank" rel="noopener">Política de cookies</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Captura de UTMs y datos de contexto para poder medir el origen del lead en la hoja de cálculo
+  var params = new URLSearchParams(window.location.search);
+  document.getElementById('pagina').value = window.location.href;
+  document.getElementById('utm_source').value = params.get('utm_source') || '';
+  document.getElementById('utm_medium').value = params.get('utm_medium') || '';
+  document.getElementById('utm_campaign').value = params.get('utm_campaign') || '';
+  document.getElementById('fecha').value = new Date().toISOString();
+
+  var form = document.getElementById('leadForm');
+  var iframe = document.getElementById('hidden_iframe');
+  var btn = document.getElementById('submitBtn');
+  var msg = document.getElementById('formMsg');
+  var submitted = false;
+
+  form.addEventListener('submit', function(){
+    submitted = true;
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+    msg.className = '';
+    msg.textContent = '';
+  });
+
+  iframe.addEventListener('load', function(){
+    if (!submitted) return; // ignora la carga inicial en blanco del iframe
+    btn.disabled = false;
+    btn.textContent = 'Quiero la clase gratis';
+    msg.className = 'ok';
+    msg.textContent = '¡Gracias! Hemos recibido tus datos, te llamaremos muy pronto.';
+    form.reset();
+    document.getElementById('fecha').value = new Date().toISOString();
+    submitted = false;
+  });
+})();
+</script>
+
+</body>
+</html>
