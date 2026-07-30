@@ -405,6 +405,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .consent input[type="checkbox"]:not(.filled-in) + span:not(.lever):after{
     display:none !important;
   }
+  /* Campo trampa invisible para bots; no afecta a usuarios reales. */
+  .anti-bot-field{
+    position:absolute !important;
+    left:-10000px !important;
+    top:auto !important;
+    width:1px !important;
+    height:1px !important;
+    overflow:hidden !important;
+    opacity:0 !important;
+    pointer-events:none !important;
+  }
   #formMsg{margin-top:14px;font-size:14px;}
   #formMsg.ok{color:var(--accent-lime-dim);font-weight:600;}
   #formMsg.err{color:var(--err-red);font-weight:600;}
@@ -832,7 +843,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div>
       <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-      <form id="leadForm" method="POST" action="https://script.google.com/macros/s/AKfycbzZ4mw4X8-xJiR76NCv_MLdPjbtIZ_RjeAW9HRlJIyuC4T9kB11P8l3cJI2DAYY-Ph9/exec" target="hidden_iframe">
+      <form id="leadForm" method="POST" action="https://script.google.com/macros/s/AKfycbzG0f08k48mN3gYC9GD5G_uPoGSoXEfcYNC6dp_TvkV1XV_YNWpURVNvmFdxqnqriGv/exec" target="hidden_iframe">
         <div class="field-row">
           <div class="field">
             <label for="nombre">Nombre y apellidos</label>
@@ -881,6 +892,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <input type="hidden" id="utm_medium" name="utm_medium">
         <input type="hidden" id="utm_campaign" name="utm_campaign">
         <input type="hidden" id="fecha" name="fecha">
+
+        <!-- Protección anti-spam invisible: los usuarios reales no interactúan con estos campos. -->
+        <div class="anti-bot-field" aria-hidden="true">
+          <label for="website">No rellenar</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+        <input type="hidden" id="form_started" name="form_started">
 
         <label class="consent">
           <input type="checkbox" required>
@@ -979,19 +997,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>
 (function(){
   var params = new URLSearchParams(window.location.search);
+
   document.getElementById('pagina').value = window.location.href;
   document.getElementById('utm_source').value = params.get('utm_source') || '';
   document.getElementById('utm_medium').value = params.get('utm_medium') || '';
   document.getElementById('utm_campaign').value = params.get('utm_campaign') || '';
   document.getElementById('fecha').value = new Date().toISOString();
 
+  // El servidor puede utilizar este timestamp para detectar envíos demasiado rápidos.
+  document.getElementById('form_started').value = String(Date.now());
+
   var form = document.getElementById('leadForm');
   var iframe = document.getElementById('hidden_iframe');
   var btn = document.getElementById('submitBtn');
   var msg = document.getElementById('formMsg');
+  var honeypot = document.getElementById('website');
+  var formStarted = document.getElementById('form_started');
   var submitted = false;
 
-  form.addEventListener('submit', function(){
+  form.addEventListener('submit', function(e){
+    // Honeypot: un usuario real nunca debería rellenarlo.
+    if (honeypot && honeypot.value.trim() !== '') {
+      e.preventDefault();
+      return false;
+    }
+
+    // Evita envíos automatizados instantáneos.
+    var started = parseInt(formStarted.value, 10);
+    if (!started || (Date.now() - started) < 3500) {
+      e.preventDefault();
+      msg.className = 'err';
+      msg.textContent = 'Espera unos segundos antes de enviar el formulario.';
+      return false;
+    }
+
+    // Evita dobles clics/reenvíos mientras se procesa.
+    if (submitted) {
+      e.preventDefault();
+      return false;
+    }
+
     submitted = true;
     btn.disabled = true;
     btn.textContent = 'Enviando...';
@@ -1001,8 +1046,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   iframe.addEventListener('load', function(){
     if (!submitted) return;
-    submitted = false;
-    window.location.href = 'https://algorithmicspalma.com/gracias.html';
+
+    // Damos margen a la petición POST antes de mostrar gracias.
+    setTimeout(function(){
+      if (!submitted) return;
+      submitted = false;
+      window.location.href = 'https://algorithmicspalma.com/gracias.html';
+    }, 700);
   });
 })();
 
