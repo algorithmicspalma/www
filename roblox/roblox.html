@@ -1000,13 +1000,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   iframe.addEventListener('load', function(){
     if (!submitted) return;
-    btn.disabled = false;
-    btn.textContent = 'Enviar';
-    msg.className = 'ok';
-    msg.textContent = '¡Gracias! Hemos recibido tus datos, te llamaremos muy pronto.';
-    form.reset();
-    document.getElementById('fecha').value = new Date().toISOString();
     submitted = false;
+    window.location.href = 'https://algorithmicspalma.com/gracias.html';
   });
 })();
 
