@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
 
-Disallow: /gracias.html
-
 Sitemap: https://algorithmicspalma.com/sitemap.xml
