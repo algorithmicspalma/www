@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Curso de Python para 12–18 años · Algorithmics Palma</title>
 <meta name="description" content="Curso de Python para jóvenes de 12 a 18 años: aprende a programar desde cero creando proyectos, videojuegos y aplicaciones. Clase de prueba gratuita en Palma de Mallorca o modalidad online.">
-<link rel="canonical" href="https://algorithmicspalma.com/python/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -541,6 +540,58 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .faq-item[open] summary::after{content:"–";}
   .faq-item p{padding:0 22px 20px;color:var(--text-muted);font-size:14.5px;line-height:1.65;}
+  /* ── LANDING: formulario arriba ───────────────── */
+  .hero{padding:48px 0 56px;}
+  .hero-inner{align-items:start;gap:48px;}
+  .hero-points{list-style:none;margin:0 0 22px;padding:0;display:grid;gap:10px;}
+  .hero-points li{display:flex;gap:10px;align-items:flex-start;font-weight:600;font-size:15.5px;}
+  .hero-points li i{flex:none;width:24px;height:24px;border-radius:7px;background:var(--accent-lime);color:#fff;border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:14px;line-height:1;margin-top:1px;font-style:normal;font-weight:700;}
+  .hero-form{scroll-margin-top:90px;}
+  .hero-form form#leadForm{padding:24px 24px 22px;}
+  .form-head{margin-bottom:16px;}
+  .form-head h2{font-size:22px;line-height:1.2;margin-bottom:6px;}
+  .form-head p{margin:0;color:var(--text-muted);font-size:14px;}
+  .form-head .free{display:inline-block;background:var(--accent-lime);color:#fff;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:6px;margin-bottom:10px;border:2px solid var(--ink);}
+  .hero-form .field{margin-bottom:12px;}
+  .consent-more{font-size:11px;color:var(--text-muted);margin:0 0 12px;}
+  .consent-more summary{cursor:pointer;text-decoration:underline;list-style:none;}
+  .consent-more summary::-webkit-details-marker{display:none;}
+  .consent-more p{margin:8px 0 0;line-height:1.45;}
+  .form-alt{margin-top:14px;text-align:center;font-size:13px;color:var(--text-muted);}
+  .form-alt a{color:#1a9a4a;font-weight:700;}
+  .strip{padding:28px 0;background:var(--bg-panel);border-top:2.5px solid var(--ink);}
+  .strip .wrap{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;}
+  .strip-ctas{display:flex;flex-wrap:wrap;gap:12px;}
+  .proyectos .build-panel{max-width:560px;margin:0 auto;}
+  .sticky-cta{display:none;}
+  .hero-ctas-desk{margin:0;}
+  .strip-ctas{display:none;}
+  section.showcase{border-top:0;padding-top:16px;}
+  .showcase-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+  .showcase-media .build-panel{max-width:520px;margin:0 auto;}
+  .showcase-info h2{font-size:clamp(24px,2.8vw,32px);line-height:1.2;margin-bottom:16px;}
+  .showcase-info h2 em{font-style:normal;color:var(--accent-lime);}
+  .showcase-info p{color:var(--text-muted);font-size:16px;margin:0 0 24px;}
+  .showcase-info .hero-stats{margin-bottom:0;}
+  @media (max-width:860px){
+    .hero{padding:28px 0 40px;}
+    .hero-inner{gap:28px;}
+    .hero-form{order:2;}
+    .hero-points,.hero-ctas-desk{display:none;}
+    .strip-ctas{display:flex;width:100%;}
+    .strip-ctas .btn{flex:1;}
+    .showcase-grid{grid-template-columns:1fr;gap:32px;}
+    .showcase-info .hero-stats{flex-direction:column;width:100%;gap:12px;}
+    .showcase-info .stat-card{width:100%;}
+    .strip-ctas{margin-top:18px;}
+    .hero .lead{font-size:16px;margin:14px 0 0;}
+    .hero-badges{margin:10px 0 0;}
+    .hero-badge{font-size:12.5px;padding:6px 12px;}
+    body{padding-bottom:72px;}
+    .sticky-cta{display:flex;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:900;padding:10px 14px;background:#fff;border-top:2.5px solid var(--ink);transform:translateY(110%);transition:transform .25s ease;}
+    .sticky-cta.show{transform:none;}
+    .sticky-cta .btn{flex:1;padding:12px 10px;box-shadow:3px 3px 0 var(--ink);}
+  }
 </style>
 </head>
 <body>
@@ -580,7 +631,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <section class="hero">
   <div class="wrap hero-inner">
-    <div>
+    <div class="hero-copy">
       <div class="eyebrow">Ruta Formativa · Python · 12–18 años</div>
       <h1>Aprende Python<br><em>creando proyectos de verdad.</em></h1>
       <div class="hero-badges">
@@ -588,65 +639,102 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="hero-badge alt">📍 Palma de Mallorca</span>
       </div>
       <p class="lead">Una ruta formativa completa de 4 niveles en la que tu hijo/a aprende Python desde cero y avanza creando videojuegos, aplicaciones y proyectos cada vez más completos. En nuestra academia de Palma de Mallorca o en modalidad online.</p>
-      <div class="hero-ctas">
-        <a class="btn btn-primary" href="#form">Reservar clase de prueba gratis</a>
+      <ul class="hero-points">
+        <li><i>✓</i>Primera clase gratuita y sin compromiso</li>
+        <li><i>✓</i>Empieza desde cero, sin experiencia previa</li>
+        <li><i>✓</i>4 niveles: de sus primeros programas a la IA</li>
+      </ul>
+      <div class="hero-ctas hero-ctas-desk">
         <a class="btn btn-enroll" href="https://es.alg.academy/inscripcion-online" target="_blank" rel="noopener">Inscríbete ya</a>
         <a class="btn btn-whatsapp" href="https://wa.me/34613093394?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20del%20curso%20de%20Python" target="_blank" rel="noopener">💬 WhatsApp</a>
       </div>
-      <div class="hero-stats">
-        <div class="stat-card">
-          <div class="stat-icon">⏱️</div>
-          <div>
-            <div class="num">90'</div>
-            <div class="lbl">Clase semanal</div>
-          </div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon">🧭</div>
-          <div>
-            <div class="num">4</div>
-            <div class="lbl">Niveles</div>
-          </div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-icon">🎯</div>
-          <div>
-            <div class="num">12–18</div>
-            <div class="lbl">Años</div>
-          </div>
-        </div>
-      </div>
     </div>
-    <div class="build-panel">
-      <div class="dot-row"><span></span><span></span><span></span></div>
-      
-      <div class="carousel-container" id="pythonCarousel">
-        <div class="carousel-track">
-          <div class="carousel-slide"><img src="foto1.jpg" alt="Proyecto Python 1" loading="lazy"></div>
-          <div class="carousel-slide"><img src="foto2.jpg" alt="Proyecto Python 2" loading="lazy"></div>
-          <div class="carousel-slide"><img src="foto3.jpg" alt="Proyecto Python 3" loading="lazy"></div>
-          <div class="carousel-slide"><img src="foto4.jpg" alt="Proyecto Python 4" loading="lazy"></div>
-          <div class="carousel-slide"><img src="foto5.jpg" alt="Proyecto Python 5" loading="lazy"></div>
-        </div>
-        <button type="button" class="carousel-btn prev" aria-label="Anterior">&#10094;</button>
-        <button type="button" class="carousel-btn next" aria-label="Siguiente">&#10095;</button>
-      </div>
-      
-      <div class="carousel-dots" id="carouselDots">
-        <span class="carousel-dot active" data-index="0"></span>
-        <span class="carousel-dot" data-index="1"></span>
-        <span class="carousel-dot" data-index="2"></span>
-        <span class="carousel-dot" data-index="3"></span>
-        <span class="carousel-dot" data-index="4"></span>
-      </div>
 
-      <div class="chips">
-        <span class="chip">Python</span>
-        <span class="chip">POO</span>
-        <span class="chip">PyGame</span>
-        <span class="chip">Git &amp; GitHub</span>
-        <span class="chip">Machine Learning</span>
-      </div>
+    <div class="hero-form" id="form">
+      <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+      <form id="leadForm" method="POST" action="https://script.google.com/macros/s/AKfycbw3S2IZDUdkx19n1obuLlUrQlveBWRUjiaDV_iE7GAqbNp2cWeHbhlgMnlQXZb_fSmDqw/exec" target="hidden_iframe">
+        <div class="form-head">
+          <span class="free">Clase de prueba gratis</span>
+          <h2>Reserva plaza o resuelve tus dudas</h2>
+          <p>Déjanos tus datos y te llamamos para conocer el nivel e intereses de tu hijo/a.</p>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="nombre">Nombre y apellidos</label>
+            <input type="text" id="nombre" name="nombre" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" required autocomplete="tel">
+          </div>
+        </div>
+        <div class="field">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="edad">Edad del alumno/a</label>
+            <select id="edad" name="edad" required>
+              <option value="">Selecciona</option>
+              <option>11 o menos</option>
+              <option>12</option>
+              <option>13</option>
+              <option>14</option>
+              <option>15</option>
+              <option>16</option>
+              <option>17</option>
+              <option>18 o más</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="modalidad">Modalidad de interés</label>
+            <select id="modalidad" name="modalidad" required>
+              <option value="">Selecciona</option>
+              <option>Presencial (Palma)</option>
+              <option>Online</option>
+              <option>Aún no lo sé</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="mensaje">Cuéntanos algo más (opcional)</label>
+          <textarea id="mensaje" name="mensaje" rows="2"></textarea>
+        </div>
+
+        <input type="hidden" id="curso_campo" name="curso" value="Python">
+        <input type="hidden" id="pagina" name="pagina">
+        <input type="hidden" id="utm_source" name="utm_source">
+        <input type="hidden" id="utm_medium" name="utm_medium">
+        <input type="hidden" id="utm_campaign" name="utm_campaign">
+        <input type="hidden" id="utm_term" name="utm_term">
+        <input type="hidden" id="utm_content" name="utm_content">
+        <input type="hidden" id="gclid" name="gclid">
+        <input type="hidden" id="gbraid" name="gbraid">
+        <input type="hidden" id="wbraid" name="wbraid">
+        <input type="hidden" id="fbclid" name="fbclid">
+        <input type="hidden" id="fecha" name="fecha">
+
+        <!-- Protección anti-spam invisible: los usuarios reales no interactúan con estos campos. -->
+        <div class="anti-bot-field" aria-hidden="true">
+          <label for="website">No rellenar</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+        <input type="hidden" id="form_started" name="form_started">
+
+        <label class="consent">
+          <input type="checkbox" required>
+          <span>He leído y acepto la información sobre protección de datos.</span>
+        </label>
+        <details class="consent-more">
+          <summary>Ver información legal completa</summary>
+          <p>Según el REGLAMENTO (UE) 2016/679 DEL PARLAMENTO EUROPEO Y DEL CONSEJO de 27 de abril de 2016 relativo a la protección de las personas físicas en lo que respecta al tratamiento de datos personales y a la libre circulación de estos datos: Sus datos son utilizados para gestionar las consultas que se realizan a través de nuestra web mediante sus tratamientos como Formulario Web. La base legal para el tratamiento de sus datos es su consentimiento a través de la aceptación del checkbox. No se cederán datos a terceros, salvo obligación legal. Podrá acceder, rectificar y suprimir los datos, así como otros derechos en cualquier momento contactándonos a través de cualquier canal disponible.</p>
+        </details>
+
+        <button class="btn btn-primary submit-btn" type="submit" id="submitBtn">🚀 Reservar clase gratis</button>
+        <div id="formMsg" role="status"></div>
+        <div class="form-alt">¿Prefieres escribirnos? <a href="https://wa.me/34613093394?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20del%20curso%20de%20Python" target="_blank" rel="noopener">💬 WhatsApp</a></div>
+      </form>
     </div>
   </div>
 </section>
@@ -779,6 +867,58 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+<section class="showcase">
+  <div class="wrap showcase-grid">
+    <div class="showcase-media">
+    <div class="build-panel">
+      <div class="dot-row"><span></span><span></span><span></span></div>
+
+      <div class="carousel-container" id="pythonCarousel">
+        <div class="carousel-track">
+          <div class="carousel-slide"><img src="foto1.jpg" alt="Proyecto Python 1" loading="lazy"></div>
+          <div class="carousel-slide"><img src="foto2.jpg" alt="Proyecto Python 2" loading="lazy"></div>
+          <div class="carousel-slide"><img src="foto3.jpg" alt="Proyecto Python 3" loading="lazy"></div>
+          <div class="carousel-slide"><img src="foto4.jpg" alt="Proyecto Python 4" loading="lazy"></div>
+          <div class="carousel-slide"><img src="foto5.jpg" alt="Proyecto Python 5" loading="lazy"></div>
+        </div>
+        <button type="button" class="carousel-btn prev" aria-label="Anterior">&#10094;</button>
+        <button type="button" class="carousel-btn next" aria-label="Siguiente">&#10095;</button>
+      </div>
+
+      <div class="carousel-dots" id="carouselDots">
+        <span class="carousel-dot active" data-index="0"></span>
+        <span class="carousel-dot" data-index="1"></span>
+        <span class="carousel-dot" data-index="2"></span>
+        <span class="carousel-dot" data-index="3"></span>
+        <span class="carousel-dot" data-index="4"></span>
+      </div>
+
+      <div class="chips">
+        <span class="chip">Python</span>
+        <span class="chip">POO</span>
+        <span class="chip">PyGame</span>
+        <span class="chip">Git &amp; GitHub</span>
+        <span class="chip">Machine Learning</span>
+      </div>
+    </div>
+    </div>
+    <div class="showcase-info">
+      <div class="eyebrow">Su portafolio de proyectos, desde ya</div>
+      <h2>Imagina que el programa que enseña a sus amigos lo ha creado <em>él/ella</em></h2>
+      <p>Pasa de usuario a creador: empieza escribiendo sus primeros programas y, nivel a nivel, programa videojuegos con PyGame, aplicaciones con interfaz gráfica y sus primeros modelos de Inteligencia Artificial. No es un curso para mirar, es para construir un portafolio del que presumir.</p>
+      <div class="hero-stats">
+        <div class="stat-card"><div class="stat-icon">⏱️</div><div><div class="num">90'</div><div class="lbl">Clase semanal</div></div></div>
+        <div class="stat-card"><div class="stat-icon">🧭</div><div><div class="num">4</div><div class="lbl">Niveles</div></div></div>
+        <div class="stat-card"><div class="stat-icon">🎯</div><div><div class="num">12–18</div><div class="lbl">Años</div></div></div>
+      </div>
+      <div class="strip-ctas">
+        <a class="btn btn-primary" href="#form">🚀 Clase de prueba gratis</a>
+        <a class="btn btn-whatsapp" href="https://wa.me/34613093394?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20del%20curso%20de%20Python" target="_blank" rel="noopener">💬 WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="cta-block">
   <div class="wrap">
     <h2>¿Listo para empezar a programar de verdad?</h2>
@@ -822,87 +962,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <summary>¿Y si le interesa más el diseño de videojuegos que la programación pura?</summary>
         <p>Sin problema. Tenemos otras rutas formativas — Roblox, Minecraft, diseño — y te ayudamos a encontrar el curso que mejor conecte con sus intereses.</p>
       </details>
-    </div>
-  </div>
-</section>
-
-<section class="form-section" id="form">
-  <div class="wrap form-grid">
-    <div class="form-side">
-      <div class="eyebrow">Último paso</div>
-      <h2>Contacta para resolver alguna duda o reservar una clase gratuita</h2>
-      <p>Rellena el formulario y te llamamos para conocer el nivel e intereses de tu hijo/a, resolver dudas y reservar plaza sin compromiso.</p>
-      <a class="whatsapp" href="https://wa.me/34613093394?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20de%20la%20ruta%20de%20Python" target="_blank" rel="noopener">💬 Prefiero escribir por WhatsApp</a>
-    </div>
-    <div>
-      <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-      <form id="leadForm" method="POST" action="https://script.google.com/macros/s/AKfycbylK1f9yycdymrk_9sQoMNf1d771Dt3PxJRYFdnS0v0dcAzNn9YkT-dMh70-jysH3YyaA/exec" target="hidden_iframe">
-        <div class="field-row">
-          <div class="field">
-            <label for="nombre">Nombre y apellidos</label>
-            <input type="text" id="nombre" name="nombre" required autocomplete="name">
-          </div>
-          <div class="field">
-            <label for="telefono">Teléfono</label>
-            <input type="tel" id="telefono" name="telefono" required autocomplete="tel">
-          </div>
-        </div>
-        <div class="field">
-          <label for="email">Correo electrónico</label>
-          <input type="email" id="email" name="email" required autocomplete="email">
-        </div>
-        <div class="field-row">
-          <div class="field">
-            <label for="edad">Edad del alumno/a</label>
-            <select id="edad" name="edad" required>
-              <option value="">Selecciona</option>
-              <option>11 o menos</option>
-              <option>12</option>
-              <option>13</option>
-              <option>14</option>
-              <option>15</option>
-              <option>16</option>
-              <option>17</option>
-              <option>18 o más</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="modalidad">Modalidad de interés</label>
-            <select id="modalidad" name="modalidad" required>
-              <option value="">Selecciona</option>
-              <option>Presencial (Palma)</option>
-              <option>Online</option>
-              <option>Aún no lo sé</option>
-            </select>
-          </div>
-        </div>
-        <div class="field">
-          <label for="mensaje">Cuéntanos algo más (opcional)</label>
-          <textarea id="mensaje" name="mensaje" rows="3"></textarea>
-        </div>
-
-        <input type="hidden" id="curso" name="curso" value="Python">
-        <input type="hidden" id="pagina" name="pagina">
-        <input type="hidden" id="utm_source" name="utm_source">
-        <input type="hidden" id="utm_medium" name="utm_medium">
-        <input type="hidden" id="utm_campaign" name="utm_campaign">
-        <input type="hidden" id="fecha" name="fecha">
-
-        <!-- Protección anti-spam invisible: los usuarios no tienen que hacer nada. -->
-        <div class="field anti-bot-field" aria-hidden="true">
-          <label for="website">Deja este campo vacío</label>
-          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
-        </div>
-        <input type="hidden" id="form_started" name="form_started">
-
-        <label class="consent">
-          <input type="checkbox" required>
-          <span>He leído y acepto la información sobre protección de datos según el REGLAMENTO (UE) 2016/679 DEL PARLAMENTO EUROPEO Y DEL CONSEJO de 27 de abril de 2016 relativo a la protección de las personas físicas en lo que respecta al tratamiento de datos personales y a la libre circulación de estos datos: Sus datos son utilizados para gestionar las consultas que se realizan a través de nuestra web mediante sus tratamientos como Formulario Web. La base legal para el tratamiento de sus datos es su consentimiento a través de la aceptación del checkbox. No se cederán datos a terceros, salvo obligación legal. Podrá acceder, rectificar y suprimir los datos, así como otros derechos en cualquier momento contactándonos a través de cualquier canal disponible.</span>
-        </label>
-
-        <button class="btn btn-primary submit-btn" type="submit" id="submitBtn">Enviar</button>
-        <div id="formMsg" role="status"></div>
-      </form>
     </div>
   </div>
 </section>
@@ -978,6 +1037,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </footer>
 
+<div class="sticky-cta" id="stickyCta">
+  <a class="btn btn-primary" href="#form">🚀 Clase gratis</a>
+  <a class="btn btn-whatsapp" href="https://wa.me/34613093394?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20del%20curso%20de%20Python" target="_blank" rel="noopener">💬 WhatsApp</a>
+</div>
+
 <!-- MaterializeJS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script>
@@ -992,39 +1056,50 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script>
 (function(){
   var params = new URLSearchParams(window.location.search);
+
   document.getElementById('pagina').value = window.location.href;
-  document.getElementById('utm_source').value = params.get('utm_source') || '';
-  document.getElementById('utm_medium').value = params.get('utm_medium') || '';
-  document.getElementById('utm_campaign').value = params.get('utm_campaign') || '';
+  // Parámetros de campaña y de clic publicitario. Se guardan en sessionStorage
+  // para no perderlos si el usuario recarga la página sin los parámetros en la URL.
+  ['utm_source','utm_medium','utm_campaign','utm_term','utm_content',
+   'gclid','gbraid','wbraid','fbclid'].forEach(function(key){
+    var val = params.get(key) || '';
+    try {
+      if (val) { sessionStorage.setItem('lp_' + key, val); }
+      else { val = sessionStorage.getItem('lp_' + key) || ''; }
+    } catch (err) {}
+    var el = document.getElementById(key);
+    if (el) el.value = val;
+  });
   document.getElementById('fecha').value = new Date().toISOString();
+
+  // El servidor puede utilizar este timestamp para detectar envíos demasiado rápidos.
   document.getElementById('form_started').value = String(Date.now());
 
   var form = document.getElementById('leadForm');
-  var honeypot = document.getElementById('website');
-  var formStarted = document.getElementById('form_started');
   var iframe = document.getElementById('hidden_iframe');
   var btn = document.getElementById('submitBtn');
   var msg = document.getElementById('formMsg');
+  var honeypot = document.getElementById('website');
+  var formStarted = document.getElementById('form_started');
   var submitted = false;
 
   form.addEventListener('submit', function(e){
-    // 1) Honeypot: un bot que rellene todos los campos queda bloqueado.
-    if (honeypot.value.trim() !== '') {
+    // Honeypot: un usuario real nunca debería rellenarlo.
+    if (honeypot && honeypot.value.trim() !== '') {
       e.preventDefault();
       return false;
     }
 
-    // 2) Tiempo mínimo: evita envíos automatizados prácticamente instantáneos.
+    // Evita envíos automatizados instantáneos.
     var started = parseInt(formStarted.value, 10);
-    var elapsed = Date.now() - started;
-    if (!started || elapsed < 3500) {
+    if (!started || (Date.now() - started) < 3500) {
       e.preventDefault();
       msg.className = 'err';
       msg.textContent = 'Espera unos segundos antes de enviar el formulario.';
       return false;
     }
 
-    // 3) Evita doble clic/envíos repetidos durante la misma sesión.
+    // Evita dobles clics/reenvíos mientras se procesa.
     if (submitted) {
       e.preventDefault();
       return false;
@@ -1039,8 +1114,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   iframe.addEventListener('load', function(){
     if (!submitted) return;
-    submitted = false;
-    window.location.href = 'https://algorithmicspalma.com/gracias.html';
+
+    // Damos margen a la petición POST antes de mostrar gracias.
+    setTimeout(function(){
+      if (!submitted) return;
+      submitted = false;
+      window.location.href = 'https://algorithmicspalma.com/gracias.html';
+    }, 700);
   });
 })();
 
@@ -1146,6 +1226,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   } else {
     initPythonCarousel();
   }
+})();
+
+// Barra fija móvil: visible solo cuando el formulario no está en pantalla
+(function(){
+  var f=document.getElementById('form'), bar=document.getElementById('stickyCta');
+  if(!f||!bar||!('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function(e){ bar.classList.toggle('show', !e[0].isIntersecting); },{threshold:.1}).observe(f);
+  document.querySelectorAll('a[href="#form"]').forEach(function(a){
+    a.addEventListener('click',function(){ setTimeout(function(){ var n=document.getElementById('nombre'); if(n) n.focus({preventScroll:true}); },600); });
+  });
 })();
 </script>
 
