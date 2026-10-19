@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curso de Fundamentos de Programación para niños (5–7 años) · Algorithmics Palma</title>
+<meta name="description" content="Tu hijo/a da sus primeros pasos en el código con retos gamificados y Scratch Jr.: lógica, animaciones y juegos. Clase de prueba gratuita en Palma de Mallorca.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- FontAwesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<!-- MaterializeCSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K5KLCC47');</script>
+<!-- END Google Tag Manager -->
+
+<style>
+  :root{
+    --bg-deep:#FFFFFF;
+    --bg-panel:#F7F7FB;
+    --bg-panel-alt:#ECEEF7;
+    --line: rgba(20,21,26,.10);
+    --line-strong: rgba(20,21,26,.18);
+    --accent-lime:#2B8A3E;
+    --accent-lime-dim:#1F6B2E;
+    --accent-coral:#C2410C;
+    --err-red:#D42B1F;
+    --ink:#14151A;
+    --brand-purple:#5b2d8e;
+    --primary:#5b2d8e;
+    --accent:#7c3aed;
+    --accent2:#a855f7;
+    --text:#14151A;
+    --text-muted:#5B5F72;
+    --radius:14px;
+    --maxw:1120px;
+    --hard:4px 4px 0 rgba(20,21,26,1);
+    --hard-lg:7px 7px 0 rgba(20,21,26,1);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg-deep);
+    color:var(--text);
+    font-family:'Inter',system-ui,sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Chakra Petch','Inter',sans-serif;
+    letter-spacing:.01em;
+    margin:0;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'Chakra Petch',sans-serif;
+    font-size:13px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--accent-lime);
+    margin-bottom:18px;
+  }
+  .eyebrow::before{content:"";width:8px;height:8px;background:var(--accent-lime);display:inline-block;transform:rotate(45deg);}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:12px 20px;border-radius:10px;font-weight:700;
+    font-family:'Chakra Petch',sans-serif;font-size:14px;letter-spacing:.02em;
+    text-decoration:none;cursor:pointer;border:2.5px solid var(--ink);
+    box-shadow:var(--hard);
+    transition:transform .12s ease, box-shadow .12s ease, background .15s ease;
+    white-space: nowrap;
+  }
+  .btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 rgba(20,21,26,1);}
+  .btn:active{transform:translate(1px,1px);box-shadow:2px 2px 0 rgba(20,21,26,1);}
+  .btn-primary{background:var(--accent-lime);color:#fff;}
+  .btn-primary:hover{background:var(--accent-lime-dim);}
+  .btn-ghost{background:#fff;color:var(--ink);}
+  .btn-ghost:hover{background:var(--bg-panel-alt);color:var(--ink);}
+  .btn-enroll{background:var(--primary);color:#fff;border-color:var(--ink);}
+  .btn-enroll:hover{background:var(--ink);}
+  .btn-whatsapp{background:#25D366;color:#fff;}
+  .btn-whatsapp:hover{background:#1EBE5A;}
+
+  /* ── NAVBAR (idéntico a la web principal) ─────────────── */
+  nav{
+    background:var(--primary);
+    box-shadow:0 2px 20px rgba(26,31,110,.35);
+    position:sticky;top:0;z-index:999;
+  }
+  nav .brand-logo{
+    display:flex;align-items:center;gap:10px;
+    padding-left:1.5rem;height:100%;
+  }
+  nav .brand-logo .nav-logo-a{height:38px;width:auto;display:block;}
+  nav .brand-logo .nav-palma{
+    font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;
+    color:#fff;letter-spacing:-.2px;line-height:1;white-space:nowrap;
+  }
+  nav ul a{
+    font-family:'DM Sans',sans-serif;font-weight:500;font-size:.92rem;
+    letter-spacing:.2px;transition:color .2s;
+  }
+  nav ul a:hover{color:#c5caff !important;}
+
+  /* ── FOOTER (idéntico a la web principal) ──────────────── */
+  footer{background:var(--primary);padding:56px 0 28px;}
+  footer .footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+  footer p{color:rgba(255,255,255,.6);font-size:.9rem;line-height:1.7;}
+  footer h6{font-family:'Space Grotesk',sans-serif;color:#fff;font-weight:700;margin-bottom:16px;}
+  footer a{color:rgba(255,255,255,.65) !important;font-size:.9rem;transition:color .2s;display:block;margin-bottom:8px;text-decoration:none;}
+  footer a:hover{color:#c5caff !important;}
+  .social-row{display:flex;gap:12px;margin-top:16px;}
+  .social-btn{
+    width:40px;height:40px;border-radius:10px;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+    display:flex;align-items:center;justify-content:center;
+    color:#fff !important;transition:background .2s !important;text-decoration:none;
+  }
+  .social-btn:hover{background:var(--accent) !important;}
+  footer .footer-bottom{
+    border-top:1px solid rgba(255,255,255,.12);margin-top:40px;padding-top:22px;text-align:center;
+  }
+  footer .footer-bottom p{font-size:.8rem;margin:0;}
+  @media (max-width:960px){
+    nav ul.hide-on-med-and-down{display:none;}
+  }
+
+  /* Hero */
+  .hero{
+    position:relative;overflow:hidden;
+    padding:96px 0 80px;
+    background:
+      radial-gradient(circle at 82% 8%, rgba(43,138,62,.08), transparent 45%),
+      radial-gradient(circle at 10% 90%, rgba(194,65,12,.07), transparent 40%),
+      var(--bg-deep);
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:44px 44px;
+    mask-image:linear-gradient(to bottom, rgba(0,0,0,.9), transparent 78%);
+    pointer-events:none;
+  }
+  .hero-inner{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;}
+  @media (max-width:900px){.hero-inner{grid-template-columns:1fr;}}
+  .hero h1{font-size:clamp(34px,4.6vw,54px);line-height:1.06;font-weight:700;}
+  .hero h1 em{font-style:normal;color:var(--accent-lime);}
+  .hero p.lead{font-size:18px;color:var(--text-muted);margin:22px 0 30px;max-width:52ch;}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:30px;}
+  
+  /* Estadísticas mejoradas y más chulas */
+  .hero-stats{display:flex;gap:16px;flex-wrap:wrap;}
+  .stat-card{
+    background:#fff;
+    border:2.5px solid var(--ink);
+    border-radius:12px;
+    padding:14px 18px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    box-shadow:var(--hard);
+    position:relative;
+    overflow:hidden;
+    transition:transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .stat-card:hover{
+    transform:translate(-2px,-2px);
+    box-shadow:6px 6px 0 rgba(20,21,26,1);
+  }
+  .stat-card::before{
+    content:"";
+    position:absolute;top:0;left:0;width:5px;height:100%;
+    background:var(--accent-lime);
+  }
+  .stat-icon{
+    font-size:22px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(43,138,62,.10);
+    width:40px;
+    height:40px;
+    border-radius:10px;
+  }
+  .hero-stats .num{font-family:'Chakra Petch',sans-serif;font-size:22px;font-weight:700;color:var(--accent-lime);line-height:1.1;}
+  .hero-stats .lbl{font-size:11px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;font-weight:600;}
+
+  /* Hero visual panel */
+  .build-panel{
+    background:#fff;
+    border:2.5px solid var(--ink);
+    border-radius:var(--radius);
+    padding:26px;
+    position:relative;
+    box-shadow:var(--hard-lg);
+  }
+  .build-panel .dot-row{display:flex;gap:6px;margin-bottom:18px;}
+  .build-panel .dot-row span{width:9px;height:9px;border-radius:50%;background:rgba(20,21,26,.15);}
+  .build-panel .dot-row span:first-child{background:var(--accent-coral);}
+  .build-panel .chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:20px;}
+  .chip{
+    display:inline-flex;align-items:center;justify-content:center;line-height:1;
+    font-size:12px;font-family:'Chakra Petch',sans-serif;letter-spacing:.03em;
+    border:1px solid var(--line-strong);color:var(--text-muted);background:var(--bg-panel);font-weight:600;
+    padding:8px 12px;border-radius:100px;
+  }
+
+  /* Carrusel con formato 800x800 */
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 10px;
+    touch-action: pan-y;
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+    width: 100%;
+  }
+
+  .carousel-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .carousel-slide img {
+    width: 100%;
+    height: auto;
+    max-width: 800px;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fff;
+    border: 2px solid var(--ink);
+    color: var(--ink);
+    font-size: 18px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .carousel-btn:hover {
+    background: var(--accent-lime);
+    color: #fff;
+    border-color: var(--accent-lime);
+  }
+
+  .carousel-btn.prev { left: 10px; }
+  .carousel-btn.next { right: 10px; }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(20, 21, 26, 0.18);
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .carousel-dot.active {
+    background: var(--accent-lime);
+    transform: scale(1.25);
+  }
+
+  section{padding:76px 0;}
+  section + section{border-top:1px solid var(--line);}
+  .section-head{max-width:640px;margin-bottom:44px;}
+  .section-head h2{font-size:clamp(26px,3.2vw,36px);font-weight:700;line-height:1.15;}
+  .section-head p{color:var(--text-muted);margin-top:14px;font-size:16px;}
+
+  /* Skills */
+  .skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+  @media (max-width:900px){.skills-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.skills-grid{grid-template-columns:1fr;}}
+  .skill-card{
+    background:#fff;border:2.5px solid var(--ink);border-radius:var(--radius);
+    padding:24px 20px;box-shadow:var(--hard);
+  }
+  .skill-card .mark{font-family:'Chakra Petch',sans-serif;color:var(--accent-lime);font-size:13px;margin-bottom:14px;}
+  .skill-card h3{font-size:17px;margin-bottom:8px;}
+  .skill-card p{color:var(--text-muted);font-size:14px;margin:0;}
+
+  /* Path / modules */
+  .path-wrap{position:relative;}
+  .path-line{
+    position:absolute;left:27px;top:8px;bottom:8px;width:3px;
+    background:repeating-linear-gradient(to bottom, var(--accent-lime) 0 6px, transparent 6px 14px);
+  }
+  @media (max-width:700px){.path-line{left:19px;}}
+  .path-node{
+    position:relative;display:flex;gap:22px;padding:0 0 40px 0;
+  }
+  .path-node:last-child{padding-bottom:0;}
+  .path-badge{
+    flex:none;width:56px;height:56px;border-radius:14px;
+    background:var(--accent-lime);border:2.5px solid var(--ink);
+    box-shadow:var(--hard);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Chakra Petch',sans-serif;font-weight:700;color:#fff;font-size:18px;
+    z-index:1;
+  }
+  @media (max-width:700px){.path-badge{width:40px;height:40px;font-size:14px;border-radius:10px;}}
+  .path-card{
+    background:#fff;border:2.5px solid var(--ink);border-radius:var(--radius);
+    padding:18px 22px;flex:1;box-shadow:var(--hard);
+  }
+  .path-card h3{font-size:16px;margin-bottom:6px;}
+  .path-card p{color:var(--text-muted);font-size:14px;margin:0;}
+
+  /* Form */
+  .form-section{
+    background:var(--bg-panel);
+    border-top:2.5px solid var(--ink);
+  }
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
+  @media (max-width:860px){.form-grid{grid-template-columns:1fr;}}
+  .form-side h2{font-size:clamp(26px,3.4vw,36px);margin-bottom:16px;}
+  .form-side p{color:var(--text-muted);margin-bottom:22px;}
+  .form-side .whatsapp{
+    display:inline-flex;align-items:center;gap:8px;color:#fff;text-decoration:none;font-weight:700;font-size:14px;
+    font-family:'Chakra Petch',sans-serif;background:#25D366;border:2.5px solid var(--ink);
+    padding:12px 20px;border-radius:10px;box-shadow:var(--hard);
+    transition:transform .12s ease, box-shadow .12s ease, background .15s ease;
+  }
+  .form-side .whatsapp:hover{background:#1EBE5A;transform:translate(-2px,-2px);box-shadow:6px 6px 0 rgba(20,21,26,1);}
+  .form-side .whatsapp:active{transform:translate(1px,1px);box-shadow:2px 2px 0 rgba(20,21,26,1);}
+  form#leadForm{
+    background:#fff;border:2.5px solid var(--ink);border-radius:var(--radius);
+    padding:28px;box-shadow:var(--hard-lg);
+  }
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:13px;color:var(--text-muted);margin-bottom:6px;font-family:'Chakra Petch',sans-serif;letter-spacing:.02em;}
+  .field input, .field select, .field textarea{
+    width:100%;background:#fff;border:2px solid var(--ink);border-radius:8px;
+    padding:12px 14px;color:var(--text);font-family:'Inter',sans-serif;font-size:15px;
+  }
+  .field select{
+    display:block !important;
+    opacity:1 !important;
+    position:static !important;
+    appearance:none;-webkit-appearance:none;-moz-appearance:none;
+    background-color:#fff;color:var(--text);
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2314151A' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+    background-repeat:no-repeat;background-position:right 14px center;background-size:16px;
+    padding-right:40px;cursor:pointer;
+  }
+  .field select option{color:var(--text);background:#fff;}
+  .field input:focus, .field select:focus, .field textarea:focus{
+    outline:2px solid var(--accent-lime);outline-offset:1px;border-color:var(--accent-lime);
+  }
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  @media (max-width:520px){.field-row{grid-template-columns:1fr;}}
+  .consent{display:flex;gap:8px;align-items:flex-start;font-size:11px;line-height:1.4;color:var(--text-muted);margin:14px 0 10px;}
+  .consent input{margin-top:3px;flex-shrink:0;}
+  .consent a{color:var(--accent-lime);text-decoration:underline;}
+  /* Materialize convierte los checkboxes en un dibujo propio (pseudo-elementos) y fuerza
+     height:25px/line-height:25px de una sola línea en el <span> siguiente. Como nuestro
+     texto legal es largo, eso hacía que se desbordara y se montara sobre el botón.
+     Aquí restauramos el checkbox nativo (visible, sin el dibujo de Materialize) y dejamos
+     que el texto fluya en varias líneas con normalidad. */
+  .consent input[type="checkbox"]{
+    position:static !important;
+    opacity:1 !important;
+    pointer-events:auto !important;
+    width:16px;height:16px;accent-color:var(--ink);
+  }
+  .consent input[type="checkbox"] + span{
+    display:block !important;
+    height:auto !important;
+    line-height:1.4 !important;
+    white-space:normal !important;
+    padding-left:0 !important;
+  }
+  .consent input[type="checkbox"] + span:not(.lever):before,
+  .consent input[type="checkbox"]:not(.filled-in) + span:not(.lever):after{
+    display:none !important;
+  }
+  /* Campo trampa invisible para bots; no afecta a usuarios reales. */
+  .anti-bot-field{
+    position:absolute !important;
+    left:-10000px !important;
+    top:auto !important;
+    width:1px !important;
+    height:1px !important;
+    overflow:hidden !important;
+    opacity:0 !important;
+    pointer-events:none !important;
+  }
+  #formMsg{margin-top:14px;font-size:14px;}
+  #formMsg.ok{color:var(--accent-lime-dim);font-weight:600;}
+  #formMsg.err{color:var(--err-red);font-weight:600;}
+  .submit-btn{width:100%;}
+
+  /* Grid 3 columnas estilo dossier (¿Qué hacen? / ¿Qué aprenden? / ¿Qué beneficios?) */
+  .dossier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media (max-width:900px){.dossier-grid{grid-template-columns:1fr;}}
+  .dossier-card{
+    background:#fff;border:2.5px solid var(--ink);border-radius:var(--radius);
+    padding:26px 24px;box-shadow:var(--hard);
+  }
+  .dossier-card h3{
+    font-size:15px;color:var(--accent-lime);margin-bottom:16px;
+    font-family:'Chakra Petch',sans-serif;letter-spacing:.02em;
+    padding-bottom:12px;border-bottom:2px solid var(--line-strong);
+  }
+  .dossier-card .item{margin-bottom:14px;}
+  .dossier-card .item:last-child{margin-bottom:0;}
+  .dossier-card .item b{display:block;font-size:14px;color:var(--text);margin-bottom:3px;}
+  .dossier-card .item span{color:var(--text-muted);font-size:13.5px;}
+
+  /* Listas de contenido dentro de cada módulo */
+  .path-card .path-note{
+    display:inline-block;margin-top:2px;margin-bottom:10px;font-size:11px;
+    color:var(--accent-coral);font-family:'Chakra Petch',sans-serif;letter-spacing:.04em;text-transform:uppercase;
+  }
+  .path-card ul.module-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:4px 18px;}
+  @media (max-width:560px){.path-card ul.module-list{grid-template-columns:1fr;}}
+  .path-card ul.module-list li{
+    color:var(--text-muted);font-size:13.5px;padding-left:14px;position:relative;
+  }
+  .path-card ul.module-list li::before{
+    content:"";position:absolute;left:0;top:8px;width:6px;height:6px;background:var(--accent-lime);border-radius:1px;transform:rotate(45deg);
+  }
+  .modulos-footnote{margin-top:20px;font-size:12.5px;color:var(--text-muted);}
+  .modulos-footnote span{color:var(--accent-coral);}
+
+  footer{
+    padding:48px 0 32px;border-top:1px solid var(--line);
+    color:var(--text-muted);font-size:13px;
+  }
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;}
+  footer a{color:var(--text-muted);text-decoration:none;}
+  footer a:hover{color:var(--accent-lime);}
+  footer .cols{display:flex;gap:48px;flex-wrap:wrap;}
+  footer h4{font-family:'Chakra Petch',sans-serif;color:var(--text);font-size:13px;margin-bottom:10px;letter-spacing:.05em;text-transform:uppercase;}
+  footer .legal{margin-top:32px;font-size:12px;opacity:.7;}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+
+  /* Horarios presenciales */
+  .horarios-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+  @media (max-width:700px){.horarios-grid{grid-template-columns:1fr;}}
+  .horario-card{
+    background:#fff;
+    border:2.5px solid var(--ink);
+    border-radius:var(--radius);
+    padding:26px 28px;
+    display:flex;align-items:center;gap:18px;
+    position:relative;overflow:hidden;
+    box-shadow:var(--hard);
+  }
+  .horario-card::before{
+    content:"";position:absolute;top:0;left:0;width:5px;height:100%;
+    background:var(--accent-lime);
+  }
+  .horario-icon{
+    font-size:24px;color:#fff;
+    background:var(--accent-lime);
+    width:52px;height:52px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .horario-day{font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:18px;color:var(--text);margin-bottom:4px;}
+  .horario-time{color:var(--accent-lime);font-weight:600;font-size:15px;}
+
+  /* Badges destacados: Presencial / Palma de Mallorca */
+  .hero-badges{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 22px;}
+  .hero-badge{
+    display:inline-flex;align-items:center;gap:6px;
+    background:#fff;color:var(--ink);
+    font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:14px;
+    padding:8px 16px;border-radius:999px;letter-spacing:.2px;
+    border:2.5px solid var(--ink);box-shadow:3px 3px 0 rgba(20,21,26,1);
+  }
+  .hero-badge.alt{background:#fff;color:var(--ink);border:2.5px solid var(--ink);box-shadow:3px 3px 0 rgba(20,21,26,1);}
+
+  /* CTA "¿Listo para empezar la aventura?" */
+  .cta-block{
+    background:var(--primary);
+    border-top:2.5px solid var(--ink);border-bottom:2.5px solid var(--ink);
+    text-align:center;
+  }
+  .cta-block h2{color:#fff;font-size:clamp(26px,3.4vw,36px);margin-bottom:12px;}
+  .cta-block p{color:rgba(255,255,255,.92);font-size:17px;margin-bottom:26px;}
+  .cta-block .btn-ghost{background:#fff;color:var(--ink);}
+
+  /* FAQ */
+  .faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:14px;}
+  .faq-item{
+    background:#fff;border:2.5px solid var(--ink);border-radius:12px;
+    box-shadow:var(--hard);overflow:hidden;
+  }
+  .faq-item summary{
+    list-style:none;cursor:pointer;padding:18px 22px;
+    font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:15px;color:var(--ink);
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{
+    content:"+";font-size:22px;font-weight:700;color:var(--accent-lime);flex-shrink:0;
+    transition:transform .2s ease;
+  }
+  .faq-item[open] summary::after{content:"–";}
+  .faq-item p{padding:0 22px 20px;color:var(--text-muted);font-size:14.5px;line-height:1.65;}
+  /* ── LANDING: formulario arriba ───────────────── */
+  .hero{padding:48px 0 56px;}
+  .hero-inner{align-items:start;gap:48px;}
+  .hero-points{list-style:none;margin:0 0 22px;padding:0;display:grid;gap:10px;}
+  .hero-points li{display:flex;gap:10px;align-items:flex-start;font-weight:600;font-size:15.5px;}
+  .hero-points li i{flex:none;width:24px;height:24px;border-radius:7px;background:var(--accent-lime);color:#fff;border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;font-size:14px;line-height:1;margin-top:1px;font-style:normal;font-weight:700;}
+  .hero-form{scroll-margin-top:90px;}
+  .hero-form form#leadForm{padding:24px 24px 22px;}
+  .form-head{margin-bottom:16px;}
+  .form-head h2{font-size:22px;line-height:1.2;margin-bottom:6px;}
+  .form-head p{margin:0;color:var(--text-muted);font-size:14px;}
+  .form-head .free{display:inline-block;background:var(--accent-lime);color:#fff;font-family:'Chakra Petch',sans-serif;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:6px;margin-bottom:10px;border:2px solid var(--ink);}
+  .hero-form .field{margin-bottom:12px;}
+  .consent-more{font-size:11px;color:var(--text-muted);margin:0 0 12px;}
+  .consent-more summary{cursor:pointer;text-decoration:underline;list-style:none;}
+  .consent-more summary::-webkit-details-marker{display:none;}
+  .consent-more p{margin:8px 0 0;line-height:1.45;}
+  .form-alt{margin-top:14px;text-align:center;font-size:13px;color:var(--text-muted);}
+  .form-alt a{color:#1a9a4a;font-weight:700;}
+  .strip{padding:28px 0;background:var(--bg-panel);border-top:2.5px solid var(--ink);}
+  .strip .wrap{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;}
+  .strip-ctas{display:flex;flex-wrap:wrap;gap:12px;}
+  .proyectos .build-panel{max-width:560px;margin:0 auto;}
+  .sticky-cta{display:none;}
+  .hero-ctas-desk{margin:0;}
+  .strip-ctas{display:none;}
+  section.showcase{border-top:0;padding-top:16px;}
+  .showcase-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;}
+  .showcase-media .build-panel{max-width:520px;margin:0 auto;}
+  .showcase-info h2{font-size:clamp(24px,2.8vw,32px);line-height:1.2;margin-bottom:16px;}
+  .showcase-info h2 em{font-style:normal;color:var(--accent-lime);}
+  .showcase-info p{color:var(--text-muted);font-size:16px;margin:0 0 24px;}
+  .showcase-info .hero-stats{margin-bottom:0;}
+  @media (max-width:860px){
+    .hero{padding:28px 0 40px;}
+    .hero-inner{gap:28px;}
+    .hero-form{order:2;}
+    .hero-points,.hero-ctas-desk{display:none;}
+    .strip-ctas{display:flex;width:100%;}
+    .strip-ctas .btn{flex:1;}
+    .showcase-grid{grid-template-columns:1fr;gap:32px;}
+    .showcase-info .hero-stats{flex-direction:column;width:100%;gap:12px;}
+    .showcase-info .stat-card{width:100%;}
+    .strip-ctas{margin-top:18px;}
+    .hero .lead{font-size:16px;margin:14px 0 0;}
+    .hero-badges{margin:10px 0 0;}
+    .hero-badge{font-size:12.5px;padding:6px 12px;}
+    body{padding-bottom:72px;}
+    .sticky-cta{display:flex;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:900;padding:10px 14px;background:#fff;border-top:2.5px solid var(--ink);transform:translateY(110%);transition:transform .25s ease;}
+    .sticky-cta.show{transform:none;}
+    .sticky-cta .btn{flex:1;padding:12px 10px;box-shadow:3px 3px 0 var(--ink);}
+  }
+</style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K5KLCC47"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<nav>
+  <div class="nav-wrapper container">
+    <a href="https://algorithmicspalma.com/" class="brand-logo">
+      <img src="https://algorithmicspalma.com/img/logo-a.png" alt="Algorithmics" class="nav-logo-a" />
+      <span class="nav-palma">Algorithmics Palma</span>
+    </a>
+
+    <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+    <ul class="right hide-on-med-and-down">
+      <li><a href="#curso">El curso</a></li>
+      <li><a href="#modulos">Plan de estudios</a></li>
+      <li><a href="#horarios">Horarios</a></li>
+      <li><a href="#form">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Sidenav mobile -->
+<ul class="sidenav" id="mobile-nav" style="background:var(--primary);">
+  <li style="padding:16px 20px;border-bottom:1px solid rgba(255,255,255,.15);">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <img src="https://algorithmicspalma.com/img/logo-a.png" alt="Algorithmics" style="height:38px;width:auto;" />
+      <span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.1rem;color:#fff;letter-spacing:-.2px;white-space:nowrap;">Algorithmics Palma</span>
+    </div>
+  </li>
+  <li><a href="#curso" class="sidenav-close" style="color:rgba(255,255,255,.85);">El curso</a></li>
+  <li><a href="#modulos" class="sidenav-close" style="color:rgba(255,255,255,.85);">Plan de estudios</a></li>
+  <li><a href="#horarios" class="sidenav-close" style="color:rgba(255,255,255,.85);">Horarios</a></li>
+  <li><a href="#form" class="sidenav-close" style="color:rgba(255,255,255,.85);">Contacto</a></li>
+</ul>
+
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <div class="eyebrow">Lógica y Programación · Scratch Jr. · 5–7 años</div>
+      <h1>Sus primeros pasos en el código,<br><em>jugando.</em></h1>
+      <div class="hero-badges">
+        <span class="hero-badge alt">🏫 Curso Presencial</span>
+        <span class="hero-badge alt">📍 Palma de Mallorca</span>
+      </div>
+      <p class="lead">Un curso de un año donde, con retos gamificados, cuadernos de lógica y Scratch Jr., aprende a ordenar sus ideas y crea sus primeras animaciones y juegos. En nuestra academia de Palma de Mallorca.</p>
+      <ul class="hero-points">
+        <li><i>✓</i>Primera clase gratuita y sin compromiso</li>
+        <li><i>✓</i>Retos gamificados y ejercicios prácticos</li>
+        <li><i>✓</i>Grupos reducidos de máximo 10 alumnos</li>
+      </ul>
+      <div class="hero-ctas hero-ctas-desk">
+        <a class="btn btn-enroll" href="https://es.alg.academy/inscripcion-online" target="_blank" rel="noopener">Inscríbete ya</a>
+        <a class="btn btn-whatsapp" href="https://wa.me/34613093394?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20del%20curso%20de%20Fundamentos%20de%20Programaci%C3%B3n" target="_blank" rel="noopener">💬 WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="hero-form" id="form">
+      <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+      <form id="leadForm" method="POST" action="https://script.google.com/macros/s/AKfycbw3S2IZDUdkx19n1obuLlUrQlveBWRUjiaDV_iE7GAqbNp2cWeHbhlgMnlQXZb_fSmDqw/exec" target="hidden_iframe">
+        <div class="form-head">
+          <span class="free">Clase de prueba gratis</span>
+          <h2>Reserva plaza o resuelve tus dudas</h2>
+          <p>Déjanos tus datos y te llamamos para conocer el nivel e intereses de tu hijo/a.</p>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="nombre">Nombre y apellidos</label>
+            <input type="text" id="nombre" name="nombre" required autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" required autocomplete="tel">
+          </div>
+        </div>
+        <div class="field">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="edad">Edad del alumno/a</label>
+            <select id="edad" name="edad" required>
+              <option value="">Selecciona</option>
+              <option>4 o menos</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8 o más</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="modalidad">Modalidad de interés</label>
+            <select id="modalidad" name="modalidad" required>
+              <option value="">Selecciona</option>
+              <option>Presencial (Palma)</option>
+              <option>Online</option>
+              <option>Aún no lo sé</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="mensaje">Cuéntanos algo más (opcional)</label>
+          <textarea id="mensaje" name="mensaje" rows="2"></textarea>
+        </div>
+
+        <input type="hidden" id="curso_campo" name="curso" value="Fundamentos de Programación">
+        <input type="hidden" id="pagina" name="pagina">
+        <input type="hidden" id="utm_source" name="utm_source">
+        <input type="hidden" id="utm_medium" name="utm_medium">
+        <input type="hidden" id="utm_campaign" name="utm_campaign">
+        <input type="hidden" id="utm_term" name="utm_term">
+        <input type="hidden" id="utm_content" name="utm_content">
+        <input type="hidden" id="gclid" name="gclid">
+        <input type="hidden" id="gbraid" name="gbraid">
+        <input type="hidden" id="wbraid" name="wbraid">
+        <input type="hidden" id="fbclid" name="fbclid">
+        <input type="hidden" id="fecha" name="fecha">
+
+        <!-- Protección anti-spam invisible: los usuarios reales no interactúan con estos campos. -->
+        <div class="anti-bot-field" aria-hidden="true">
+          <label for="website">No rellenar</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+        <input type="hidden" id="form_started" name="form_started">
+
+        <label class="consent">
+          <input type="checkbox" required>
+          <span>He leído y acepto la información sobre protección de datos.</span>
+        </label>
+        <details class="consent-more">
+          <summary>Ver información legal completa</summary>
+          <p>Según el REGLAMENTO (UE) 2016/679 DEL PARLAMENTO EUROPEO Y DEL CONSEJO de 27 de abril de 2016 relativo a la protección de las personas físicas en lo que respecta al tratamiento de datos personales y a la libre circulación de estos datos: Sus datos son utilizados para gestionar las consultas que se realizan a través de nuestra web mediante sus tratamientos como Formulario Web. La base legal para el tratamiento de sus datos es su consentimiento a través de la aceptación del checkbox. No se cederán datos a terceros, salvo obligación legal. Podrá acceder, rectificar y suprimir los datos, así como otros derechos en cualquier momento contactándonos a través de cualquier canal disponible.</p>
+        </details>
+
+        <button class="btn btn-primary submit-btn" type="submit" id="submitBtn">🚀 Contactar</button>
+        <div id="formMsg" role="status"></div>
+        <div class="form-alt">¿Prefieres escribirnos? <a href="https://wa.me/34613093394?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20del%20curso%20de%20Fundamentos%20de%20Programaci%C3%B3n" target="_blank" rel="noopener">💬 WhatsApp</a></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section id="curso">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>¿Qué hacen, qué aprenden y qué beneficios les aporta?</h2>
+      <p>Primeros pasos en el código: se inician en la programación mediante retos gamificados y ejercicios prácticos, y utilizan cuadernos de lógica para estructurar su pensamiento antes de llevar sus ideas a la pantalla.</p>
+    </div>
+    <div class="dossier-grid">
+      <div class="dossier-card">
+        <h3>¿Qué aprenden?</h3>
+        <div class="item"><b>Lógica temprana</b><span>Comprensión de secuencias y del orden de las instrucciones.</span></div>
+        <div class="item"><b>Creación digital</b><span>Diseño de animaciones y juegos en Scratch Jr.</span></div>
+        <div class="item"><b>Conceptos de programación</b><span>Uso de ciclos, eventos y reacciones táctiles.</span></div>
+        <div class="item"><b>Pensamiento creativo</b><span>Transformación de ideas en historias interactivas.</span></div>
+        <div class="item"><b>Resolución de retos</b><span>Planificación de sus primeros proyectos de código.</span></div>
+      </div>
+      <div class="dossier-card">
+        <h3>¿Qué beneficios les aporta?</h3>
+        <div class="item"><b>Pensamiento computacional</b><span>Fortalece la capacidad de resolver problemas de forma estructurada.</span></div>
+        <div class="item"><b>Habilidades sociales</b><span>Comunicación y trabajo colaborativo entre compañeros.</span></div>
+        <div class="item"><b>Confianza creativa</b><span>Potencia la imaginación y la seguridad al ver sus ideas cobrar vida.</span></div>
+        <div class="item"><b>Autonomía cognitiva</b><span>Fomenta la curiosidad natural y el hábito de aprender.</span></div>
+      </div>
+      <div class="dossier-card">
+        <h3>Ficha del curso</h3>
+        <div class="item"><b>Edad</b><span>De 5 a 7 años.</span></div>
+        <div class="item"><b>Duración de la clase</b><span>Sesiones de 60 minutos, una vez por semana.</span></div>
+        <div class="item"><b>Formato</b><span>Presencial en Palma de Mallorca, en grupos de máximo 10 alumnos y con todo el material incluido.</span></div>
+        <div class="item"><b>Resultado final</b><span>Un proyecto individual (juego con misiones o animación interactiva) presentado a sus compañeros.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="modulos">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>El camino hasta su primer proyecto</h2>
+      <p>Un curso académico completo, dividido en 8 módulos de dificultad creciente.</p>
+    </div>
+    <div class="path-wrap">
+      <div class="path-line"></div>
+
+      <div class="path-node"><div class="path-badge">1</div><div class="path-card">
+        <h3>Algoritmos lineales</h3>
+        <ul class="module-list">
+          <li>Ejecutor y algoritmo</li>
+          <li>Programa y bloque de memoria</li>
+          <li>Ejecución de programas</li>
+          <li>Programas de composición</li>
+        </ul>
+      </div></div>
+
+      <div class="path-node"><div class="path-badge">2</div><div class="path-card">
+        <h3>Ciclos</h3>
+        <ul class="module-list">
+          <li>Qué es un ciclo</li>
+          <li>Algoritmos de ciclos</li>
+        </ul>
+      </div></div>
+
+      <div class="path-node"><div class="path-badge">3</div><div class="path-card">
+        <h3>Introducción a Scratch Jr.</h3>
+        <ul class="module-list">
+          <li>La interfaz de Scratch Jr.</li>
+          <li>Eventos y comandos de «Movimiento»</li>
+          <li>Comandos de «Apariencia»</li>
+          <li>Ciclos en Scratch Jr.</li>
+        </ul>
+      </div></div>
+
+      <div class="path-node"><div class="path-badge">4</div><div class="path-card">
+        <h3>Eventos y animación</h3>
+        <ul class="module-list">
+          <li>Eventos y operaciones en paralelo</li>
+          <li>Cambios automáticos de escenas</li>
+          <li>Creación de una animación</li>
+          <li>Grabación y uso de sonidos</li>
+        </ul>
+      </div></div>
+
+      <div class="path-node"><div class="path-badge">5</div><div class="path-card">
+        <h3>Mensajes</h3>
+        <ul class="module-list">
+          <li>Qué son los mensajes</li>
+          <li>Uso de mensajes en un juego</li>
+          <li>Un botón para controlar a un personaje</li>
+        </ul>
+      </div></div>
+
+      <div class="path-node"><div class="path-badge">6</div><div class="path-card">
+        <h3>Declaraciones condicionales</h3>
+        <ul class="module-list">
+          <li>La condición de toque</li>
+          <li>Transferencia de mensaje al tocar</li>
+          <li>Creación de un juego con animación</li>
+        </ul>
+      </div></div>
+
+      <div class="path-node"><div class="path-badge">7</div><div class="path-card">
+        <h3>Implementando una mecánica de juego</h3>
+        <ul class="module-list">
+          <li>Planificar un proyecto individual</li>
+          <li>Crear un proyecto individual en Scratch Jr.</li>
+          <li>Presentaciones de proyectos</li>
+        </ul>
+      </div></div>
+
+      <div class="path-node"><div class="path-badge">8</div><div class="path-card">
+        <h3>Proyecto final</h3>
+        <ul class="module-list">
+          <li>Elegir un proyecto individual y planificarlo</li>
+          <li>Implementar el proyecto: juegos con misiones o animaciones interactivas</li>
+        </ul>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section id="horarios">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Horarios presenciales</h2>
+      <p>Clases de Fundamentos de Programación en nuestro centro de Palma, con plazas disponibles en este grupo:</p>
+    </div>
+    <div class="horarios-grid">
+      <div class="horario-card">
+        <div class="horario-icon"><i class="material-icons">event</i></div>
+        <div>
+          <div class="horario-day">Jueves</div>
+          <div class="horario-time">17:30 – 18:30</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="showcase">
+  <div class="wrap showcase-grid">
+    <div class="showcase-media">
+    <div class="build-panel">
+    <div class="dot-row"><span></span><span></span><span></span></div>
+
+    <div class="carousel-container" id="scCarousel">
+      <div class="carousel-track">
+        <div class="carousel-slide"><img src="foto1.jpg" alt="Proyecto de Scratch Jr. 1" loading="lazy"></div>
+        <div class="carousel-slide"><img src="foto2.jpg" alt="Proyecto de Scratch Jr. 2" loading="lazy"></div>
+        <div class="carousel-slide"><img src="foto3.jpg" alt="Proyecto de Scratch Jr. 3" loading="lazy"></div>
+        <div class="carousel-slide"><img src="foto4.jpg" alt="Proyecto de Scratch Jr. 4" loading="lazy"></div>
+        <div class="carousel-slide"><img src="foto5.jpg" alt="Proyecto de Scratch Jr. 5" loading="lazy"></div>
+      </div>
+      <button class="carousel-btn prev" aria-label="Anterior">&#10094;</button>
+      <button class="carousel-btn next" aria-label="Siguiente">&#10095;</button>
+    </div>
+
+    <div class="carousel-dots" id="carouselDots">
+      <span class="carousel-dot active" data-index="0"></span>
+      <span class="carousel-dot" data-index="1"></span>
+      <span class="carousel-dot" data-index="2"></span>
+      <span class="carousel-dot" data-index="3"></span>
+      <span class="carousel-dot" data-index="4"></span>
+    </div>
+
+    <div class="chips">
+      <span class="chip">Scratch Jr.</span>
+      <span class="chip">Lógica</span>
+      <span class="chip">Algoritmos</span>
+      <span class="chip">Animaciones</span>
+      <span class="chip">Juegos</span>
+    </div>
+    </div>
+    </div>
+    <div class="showcase-info">
+      <div class="eyebrow">Sus primeras historias y juegos</div>
+      <h2>Imagina su cara cuando vea moverse en la pantalla el personaje que <em>él/ella</em> ha programado</h2>
+      <p>Antes de tocar la pantalla, ordena sus ideas con cuadernos de lógica; después las convierte en animaciones, historias interactivas y juegos con Scratch Jr. Aprende a pensar paso a paso, a probar y corregir, y a presentar su proyecto a los compañeros, todo jugando.</p>
+      <div class="hero-stats">
+        <div class="stat-card"><div class="stat-icon">⏱️</div><div><div class="num">60'</div><div class="lbl">Clase semanal</div></div></div>
+        <div class="stat-card"><div class="stat-icon">👥</div><div><div class="num">10</div><div class="lbl">Alumnos máx.</div></div></div>
+        <div class="stat-card"><div class="stat-icon">🎯</div><div><div class="num">5–7</div><div class="lbl">Años</div></div></div>
+      </div>
+      <div class="strip-ctas">
+        <a class="btn btn-primary" href="#form">🚀 Clase de prueba gratis</a>
+        <a class="btn btn-whatsapp" href="https://wa.me/34613093394?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20del%20curso%20de%20Fundamentos%20de%20Programaci%C3%B3n" target="_blank" rel="noopener">💬 WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-block">
+  <div class="wrap">
+    <h2>¿Listo para dar sus primeros pasos en el código?</h2>
+    <p>La primera clase es gratuita y sin compromiso. ¡Ven a conocernos!</p>
+    <a href="#form" class="btn btn-ghost">🚀 Prueba una clase gratis</a>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>¿Tienes dudas? Aquí las resolvemos</h2>
+      <p>Todo lo que necesitas saber antes de apuntar a tu hijo/a al curso de Fundamentos de Programación.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>¿A partir de qué edad pueden apuntarse?</summary>
+        <p>El curso está pensado para niños y niñas de entre 5 y 7 años. Si tu hijo/a está fuera de ese rango, contáctanos y te orientamos hacia el curso más adecuado dentro de nuestras rutas formativas.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Necesita saber programar para apuntarse?</summary>
+        <p>No. Es un curso de iniciación: los alumnos se inician en la programación desde cero, con retos gamificados y ejercicios prácticos.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Qué es Scratch Jr.?</summary>
+        <p>Es un entorno de programación por bloques pensado para los más pequeños. Se encajan piezas gráficas, sin escribir código, para crear animaciones, historias interactivas y juegos.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cuánto dura cada clase y con qué frecuencia es?</summary>
+        <p>Las clases son semanales, con sesiones de 60 minutos, en grupos reducidos de máximo 10 alumnos para que cada uno reciba atención personalizada. El material lo ponemos nosotros.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Las clases son presenciales u online?</summary>
+        <p>El grupo de Palma se imparte de forma presencial en nuestra academia. Si prefieres la modalidad online, contáctanos y te contamos las opciones disponibles.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cómo sé si este es el curso adecuado para mi hijo/a?</summary>
+        <p>Lo más sencillo es reservar la clase de prueba gratuita. Antes de la primera sesión hablamos contigo para conocer sus intereses y nivel, y te confirmamos si Fundamentos de Programación es la mejor opción o si otra ruta encaja mejor.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Qué viene después?</summary>
+        <p>Es la puerta de entrada al resto de rutas formativas: cuando crezca puede continuar, por ejemplo, con Programación Visual con Scratch. Te ayudamos a elegir el siguiente paso según sus intereses.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ═══════════════════════════════════════════
+     TFCS BANNER
+═══════════════════════════════════════════ -->
+<div style="background:#f0eeff;padding:48px 0;text-align:center;">
+  <div class="wrap">
+    <img src="https://algorithmicspalma.com/img/TFCS_LOGO.webp" alt="The Future Coding Standard" style="max-height:80px;width:auto;max-width:90%;margin:0 auto;display:block;" />
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <!-- Col 1: Logo + descripción + contacto -->
+      <div class="col s12 m6 l4" style="margin-bottom:2rem;">
+        <div style="margin-bottom:14px;">
+          <img src="https://algorithmicspalma.com/img/logo-algo-RGB-full.png" alt="Algorithmics Palma" style="height:36px;width:auto;filter:brightness(0) invert(1);" />
+        </div>
+        <p style="margin-bottom:6px;font-family:'Space Grotesk',sans-serif;font-weight:700;color:#fff;font-size:.95rem;">Palma de Mallorca</p>
+        <p style="margin-bottom:16px;">Escuela Internacional de Programación y Tecnología. Acompañamos a niños y jóvenes de 6 a 18 años en su camino para convertirse en los creadores digitales del futuro.</p>
+        <hr style="border:none;border-top:1px solid rgba(255,255,255,.15);margin-bottom:14px;" />
+        <p style="font-size:.85rem;color:rgba(255,255,255,.6);margin-bottom:6px;">📍 C/ Marqués de Fontsanta, 37 · 07005 Palma de Mallorca</p>
+        <p style="font-size:.85rem;margin-bottom:4px;"><a href="tel:+34613093394" style="color:rgba(255,255,255,.6);text-decoration:none;">📞 613 09 33 94</a></p>
+        <p style="font-size:.85rem;margin-bottom:4px;"><a href="mailto:palma@algoacademy.es" style="color:rgba(255,255,255,.6);text-decoration:none;">✉️ palma@algoacademy.es</a></p>
+        <p style="font-size:.85rem;margin-bottom:0;"><a href="https://algorithmicspalma.com" target="_blank" style="color:rgba(255,255,255,.6);text-decoration:none;">🌐 algorithmicspalma.com</a></p>
+      </div>
+
+      <!-- Col 2: Academia -->
+      <div class="col s12 m6 l2 offset-l1" style="margin-bottom:2rem;">
+        <h6>Academia</h6>
+        <a href="https://algorithmicspalma.com/#sobre">Dónde estamos</a>
+        <a href="https://algorithmicspalma.com/#instalaciones">Instalaciones</a>
+        <a href="https://algorithmicspalma.com/#campusverano">Campus Verano</a>
+        <a href="https://algorithmicspalma.com/#certificaciones">Certificaciones</a>
+        <a href="https://es.alg.academy/inscripcion-online" target="_blank">Inscripciones</a>
+        <a href="#form">Contacto</a>
+      </div>
+
+      <!-- Col 3: Alumnos -->
+      <div class="col s12 m6 l2" style="margin-bottom:2rem;">
+        <h6>Alumnos</h6>
+        <a href="https://learn.alg.academy/course" target="_blank">Acceso a cursos</a>
+        <a href="https://es.alg.academy/inscripcion-online" target="_blank">Inscripciones</a>
+      </div>
+
+      <!-- Col 4: Síguenos -->
+      <div class="col s12 m6 l3" style="margin-bottom:2rem;">
+        <h6>Síguenos</h6>
+        <a href="https://www.facebook.com/algopalma" target="_blank" style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <i class="fa-brands fa-facebook" style="font-size:1rem;width:16px;text-align:center;"></i> Facebook
+        </a>
+        <a href="https://www.instagram.com/algopalma" target="_blank" style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <i class="fa-brands fa-instagram" style="font-size:1rem;width:16px;text-align:center;"></i> Instagram
+        </a>
+        <a href="https://www.tiktok.com/@algorithmicspalma" target="_blank" style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <i class="fa-brands fa-tiktok" style="font-size:1rem;width:16px;text-align:center;"></i> TikTok
+        </a>
+        <a href="https://www.youtube.com/@AlgorithmicsPalma" target="_blank" style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <i class="fa-brands fa-youtube" style="font-size:1rem;width:16px;text-align:center;"></i> YouTube
+        </a>
+        <a href="https://www.linkedin.com/in/algorithmicspalma/" target="_blank" style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <i class="fa-brands fa-linkedin" style="font-size:1rem;width:16px;text-align:center;"></i> LinkedIn
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Algorithmics Palma · Escuela Internacional de Programación y Proyectos Digitales · Todos los derechos reservados</p>
+    </div>
+  </div>
+</footer>
+
+
+<div class="sticky-cta" id="stickyCta">
+  <a class="btn btn-primary" href="#form">🚀 Clase gratis</a>
+  <a class="btn btn-whatsapp" href="https://wa.me/34613093394?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20del%20curso%20de%20Fundamentos%20de%20Programaci%C3%B3n" target="_blank" rel="noopener">💬 WhatsApp</a>
+</div>
+
+<!-- MaterializeJS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    M.Sidenav.init(document.querySelectorAll('.sidenav'), {
+      onOpenStart: function() { document.querySelector('.brand-logo').style.visibility = 'hidden'; },
+      onCloseEnd: function() { document.querySelector('.brand-logo').style.visibility = 'visible'; }
+    });
+  });
+</script>
+
+<script>
+(function(){
+  var params = new URLSearchParams(window.location.search);
+
+  document.getElementById('pagina').value = window.location.href;
+  // Parámetros de campaña y de clic publicitario. Se guardan en sessionStorage
+  // para no perderlos si el usuario recarga la página sin los parámetros en la URL.
+  ['utm_source','utm_medium','utm_campaign','utm_term','utm_content',
+   'gclid','gbraid','wbraid','fbclid'].forEach(function(key){
+    var val = params.get(key) || '';
+    try {
+      if (val) { sessionStorage.setItem('lp_' + key, val); }
+      else { val = sessionStorage.getItem('lp_' + key) || ''; }
+    } catch (err) {}
+    var el = document.getElementById(key);
+    if (el) el.value = val;
+  });
+  document.getElementById('fecha').value = new Date().toISOString();
+
+  // El servidor puede utilizar este timestamp para detectar envíos demasiado rápidos.
+  document.getElementById('form_started').value = String(Date.now());
+
+  var form = document.getElementById('leadForm');
+  var iframe = document.getElementById('hidden_iframe');
+  var btn = document.getElementById('submitBtn');
+  var msg = document.getElementById('formMsg');
+  var honeypot = document.getElementById('website');
+  var formStarted = document.getElementById('form_started');
+  var submitted = false;
+
+  form.addEventListener('submit', function(e){
+    // Honeypot: un usuario real nunca debería rellenarlo.
+    if (honeypot && honeypot.value.trim() !== '') {
+      e.preventDefault();
+      return false;
+    }
+
+    // Evita envíos automatizados instantáneos.
+    var started = parseInt(formStarted.value, 10);
+    if (!started || (Date.now() - started) < 3500) {
+      e.preventDefault();
+      msg.className = 'err';
+      msg.textContent = 'Espera unos segundos antes de enviar el formulario.';
+      return false;
+    }
+
+    // Evita dobles clics/reenvíos mientras se procesa.
+    if (submitted) {
+      e.preventDefault();
+      return false;
+    }
+
+    submitted = true;
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+    msg.className = '';
+    msg.textContent = '';
+  });
+
+  iframe.addEventListener('load', function(){
+    if (!submitted) return;
+
+    // Damos margen a la petición POST antes de mostrar gracias.
+    setTimeout(function(){
+      if (!submitted) return;
+      submitted = false;
+      window.location.href = 'https://algorithmicspalma.com/gracias.html';
+    }, 700);
+  });
+})();
+
+// Carrusel (con cambio automático e interactividad mejorada)
+(function() {
+  const container = document.getElementById('scCarousel');
+  if (!container) return;
+
+  const track = container.querySelector('.carousel-track');
+  const slides = container.querySelectorAll('.carousel-slide');
+  const prevBtn = container.querySelector('.carousel-btn.prev');
+  const nextBtn = container.querySelector('.carousel-btn.next');
+  const dots = document.querySelectorAll('.carousel-dot');
+  
+  let currentIndex = 0;
+  const totalSlides = slides.length;
+  let autoplayInterval;
+
+  function updateCarousel(index) {
+    if (index < 0) index = totalSlides - 1;
+    if (index >= totalSlides) index = 0;
+    
+    currentIndex = index;
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentIndex);
+    });
+  }
+
+  function startAutoplay() {
+    autoplayInterval = setInterval(() => {
+      updateCarousel(currentIndex + 1);
+    }, 4000);
+  }
+
+  function stopAutoplay() {
+    clearInterval(autoplayInterval);
+  }
+
+  prevBtn.addEventListener('click', () => {
+    updateCarousel(currentIndex - 1);
+    stopAutoplay();
+    startAutoplay();
+  });
+
+  nextBtn.addEventListener('click', () => {
+    updateCarousel(currentIndex + 1);
+    stopAutoplay();
+    startAutoplay();
+  });
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', (e) => {
+      const idx = parseInt(e.target.dataset.index, 10);
+      updateCarousel(idx);
+      stopAutoplay();
+      startAutoplay();
+    });
+  });
+
+  container.addEventListener('mouseenter', stopAutoplay);
+  container.addEventListener('mouseleave', startAutoplay);
+
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  container.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    stopAutoplay();
+  }, { passive: true });
+
+  container.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+    startAutoplay();
+  }, { passive: true });
+
+  function handleSwipe() {
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) {
+        updateCarousel(currentIndex + 1);
+      } else {
+        updateCarousel(currentIndex - 1);
+      }
+    }
+  }
+
+  startAutoplay();
+})();
+
+// Barra fija móvil: visible solo cuando el formulario no está en pantalla
+(function(){
+  var f=document.getElementById('form'), bar=document.getElementById('stickyCta');
+  if(!f||!bar||!('IntersectionObserver' in window)) return;
+  new IntersectionObserver(function(e){ bar.classList.toggle('show', !e[0].isIntersecting); },{threshold:.1}).observe(f);
+  document.querySelectorAll('a[href="#form"]').forEach(function(a){
+    a.addEventListener('click',function(){ setTimeout(function(){ var n=document.getElementById('nombre'); if(n) n.focus({preventScroll:true}); },600); });
+  });
+})();
+</script>
+
+</body>
+</html>
