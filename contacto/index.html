@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clases de prueba gratis | Algorithmics Palma</title>
+  <meta name="description" content="Reserva tu clase de prueba gratuita de programación en Algorithmics Palma. Cursos para niños y jóvenes de 6 a 18 años en C/ Marqués de Fontsanta, 37." />
+  <link rel="icon" href="https://algorithmicspalma.com/favicon.ico" type="image/x-icon">
+  <meta property="og:title" content="Clases de prueba gratis | Algorithmics Palma">
+  <meta property="og:description" content="Campaña clases de prueba. Delegación de Palma de Mallorca.">
+  <meta property="og:image" content="https://static.tildacdn.net/tild3731-6235-4365-b366-613937313936/Palma_de_Mallorca_ca.png">
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K5KLCC47');</script>
+<!-- End Google Tag Manager -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+
+    :root {
+      --primary:    #5b2d8e;
+      --accent:     #7c3aed;
+      --accent2:    #a855f7;
+      --light-bg:   #f5f6ff;
+      --card-bg:    #ffffff;
+      --text-dark:  #12143a;
+      --text-mid:   #4a4e7a;
+      --text-light: #8a8fb5;
+      --grad: linear-gradient(135deg, #4c1d95 0%, #6b21a8 50%, #a855f7 100%);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      background: #1a1f6e;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text-dark);
+      background: #fff;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    /* ── NAVBAR ───────────────────────────────── */
+    nav {
+      background: var(--primary);
+      box-shadow: 0 2px 20px rgba(26,31,110,.35);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    nav .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-left: 1.5rem;
+      height: 100%;
+    }
+
+    nav .brand-logo .nav-logo-a {
+      height: 38px;
+      width: auto;
+      display: block;
+    }
+
+    nav .brand-logo .nav-logo-text {
+      height: 22px;
+      width: auto;
+      display: block;
+      filter: brightness(0) invert(1);
+    }
+
+    nav .brand-logo .nav-palma {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #fff;
+      letter-spacing: -.2px;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    nav .brand-logo .nav-divider {
+      width: 1px;
+      height: 20px;
+      background: rgba(255,255,255,.3);
+      flex-shrink: 0;
+    }
+
+    nav ul a {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: .92rem;
+      letter-spacing: .2px;
+      transition: color .2s;
+    }
+
+    nav ul a:hover { color: #c5caff !important; }
+
+    .nav-cta {
+      background: var(--accent) !important;
+      border-radius: 8px !important;
+      padding: 0 18px !important;
+      margin: 10px 8px !important;
+      font-weight: 600 !important;
+      transition: background .2s !important;
+    }
+
+    .nav-cta:hover { background: var(--accent2) !important; }
+
+    /* ── HERO ─────────────────────────────────── */
+    #hero {
+      background: var(--grad);
+      min-height: 100vh;
+      display: flex;
+      align-items: flex-start;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: rgba(162,89,255,.18);
+      top: -150px;
+      right: -150px;
+      pointer-events: none;
+    }
+
+    #hero::after {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: rgba(92,110,248,.15);
+      bottom: -120px;
+      left: -80px;
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; z-index: 2; }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 50px;
+      padding: 6px 18px;
+      font-size: .82rem;
+      font-weight: 600;
+      color: #e0e4ff;
+      margin-bottom: 1.4rem;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+    }
+
+    #hero h1 {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+
+    #hero h1 span {
+      background: linear-gradient(90deg, #a5b4fc, #e879f9);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    #hero p {
+      color: rgba(255,255,255,.82);
+      font-size: 1.15rem;
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 2.2rem;
+    }
+
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .btn-hero-primary {
+      background: #fff !important;
+      color: var(--primary) !important;
+      font-family: 'Space Grotesk', sans-serif !important;
+      font-weight: 700 !important;
+      border-radius: 10px !important;
+      padding: 0 28px !important;
+      height: 50px !important;
+      line-height: 50px !important;
+      font-size: 1rem !important;
+      box-shadow: 0 8px 30px rgba(0,0,0,.25) !important;
+      transition: transform .2s, box-shadow .2s !important;
+    }
+
+    .btn-hero-primary:hover {
+      transform: translateY(-2px) !important;
+      box-shadow: 0 14px 40px rgba(0,0,0,.3) !important;
+    }
+
+    .btn-hero-outline {
+      background: transparent !important;
+      color: #fff !important;
+      border: 2px solid rgba(255,255,255,.5) !important;
+      font-family: 'Space Grotesk', sans-serif !important;
+      font-weight: 600 !important;
+      border-radius: 10px !important;
+      padding: 0 24px !important;
+      height: 50px !important;
+      line-height: 46px !important;
+      font-size: 1rem !important;
+      transition: border-color .2s, background .2s !important;
+    }
+
+    .btn-hero-outline:hover {
+      border-color: #fff !important;
+      background: rgba(255,255,255,.08) !important;
+    }
+
+    .hero-stats {
+      margin-top: 3.5rem;
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat span {
+      display: block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 2rem;
+      color: #fff;
+    }
+
+    .hero-stat p {
+      font-size: .85rem;
+      color: rgba(255,255,255,.65);
+      margin: 0;
+    }
+
+    
+/* ── SECTION SHARED ───────────────────────── */
+    section { padding: 80px 0; }
+
+    .section-label {
+      display: inline-block;
+      background: linear-gradient(135deg, #ede9fe, #dbeafe);
+      color: var(--accent);
+      font-weight: 700;
+      font-size: .78rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 50px;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.2;
+      margin-bottom: .8rem;
+    }
+
+    .section-sub {
+      color: var(--text-mid);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      max-width: 580px;
+    }
+
+    
+.age-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      font-size: .72rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+
+    .course-card {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(26,31,110,.09);
+      transition: transform .25s, box-shadow .25s;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 48px rgba(26,31,110,.16);
+    }
+
+    .course-card-header {
+      padding: 22px 22px 0;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .course-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      flex-shrink: 0;
+    }
+
+    .course-card .card-content { flex: 1; padding: 18px 22px 22px; }
+
+    .course-card .card-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .course-card p { color: var(--text-mid); font-size: .88rem; line-height: 1.6; margin: 0 0 14px; }
+
+    .course-card .card-action {
+      background: transparent;
+      border-top: 1px solid #eef0ff;
+      padding: 14px 22px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .card-action-row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .card-action-row { justify-content: center; }
+    .card-action-row a {
+      flex: 1;
+      margin: 0 !important; /* anula el margin-right:24px de Materialize que descentraba el botón */
+      font-weight: 700;
+      font-size: .78rem;
+      text-decoration: none;
+      border-radius: 8px;
+      padding: 7px 13px;
+      white-space: nowrap;
+      text-align: center;
+      line-height: 1.2;
+      transition: all .2s;
+    }
+    .card-btn-schedule {
+      display: block;
+      width: 100%;
+      text-align: center;
+      font-weight: 700;
+      font-size: .75rem;
+      text-decoration: none;
+      border-radius: 8px;
+      padding: 6px 13px;
+      color: var(--text-mid) !important;
+      background: var(--light-bg) !important;
+      border: 1px solid #dde0ff !important;
+      transition: all .2s;
+      line-height: 1.2;
+    }
+    .card-btn-schedule:hover {
+      background: #ede9fe !important;
+      color: var(--accent) !important;
+      border-color: var(--accent) !important;
+    }
+    .course-card.math-card .card-btn-schedule {
+      background: #ecfdf5 !important;
+      border-color: #bbf7d0 !important;
+      color: #065f46 !important;
+    }
+    .course-card.math-card .card-btn-schedule:hover {
+      background: #d1fae5 !important;
+      border-color: #059669 !important;
+      color: #059669 !important;
+    }
+
+    .card-btn-primary {
+      background: var(--accent) !important;
+      color: #fff !important;
+    }
+
+    .card-btn-primary:hover { background: var(--primary) !important; }
+
+    .card-btn-outline {
+      background: transparent !important;
+      color: var(--accent) !important;
+      border: 1.5px solid var(--accent) !important;
+    }
+
+    .card-btn-outline:hover {
+      background: var(--accent) !important;
+      color: #fff !important;
+    }
+
+    /* ── CARDS MATEMÁTICAS (color diferente) ────── */
+    
+    .course-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: .75rem;
+      font-weight: 600;
+      color: var(--text-mid);
+      background: var(--light-bg);
+      border-radius: 20px;
+      padding: 3px 10px;
+    }
+/* ── FOOTER ───────────────────────────────── */
+    footer {
+      background: var(--primary);
+      padding: 56px 0 28px;
+    }
+
+    footer .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    footer .footer-logo .logo-icon {
+      width: 38px;
+      height: 38px;
+      background: var(--accent);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    footer .footer-logo span {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #fff;
+    }
+
+    footer p { color: rgba(255,255,255,.6); font-size: .9rem; line-height: 1.7; }
+    footer h6 { font-family: 'Space Grotesk', sans-serif; color: #fff; font-weight: 700; margin-bottom: 16px; }
+    footer a { color: rgba(255,255,255,.65) !important; font-size: .9rem; transition: color .2s; display: block; margin-bottom: 8px; }
+    footer a:hover { color: #c5caff !important; }
+
+    .social-row { display: flex; gap: 12px; margin-top: 16px; }
+    .social-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff !important;
+      transition: background .2s !important;
+      text-decoration: none;
+    }
+    .social-btn:hover { background: var(--accent) !important; }
+    .social-btn .material-icons { font-size: 1.15rem; }
+
+    footer .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.12);
+      margin-top: 40px;
+      padding-top: 22px;
+      text-align: center;
+    }
+
+    footer .footer-bottom p { font-size: .8rem; margin: 0; }
+
+    
+#faq { background: #fff; }
+
+    .faq-item {
+      background: #fff;
+      border-radius: 14px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 12px rgba(26,31,110,.06);
+      border: 1px solid #eef0ff;
+      overflow: hidden;
+      transition: box-shadow .2s;
+    }
+    .faq-item:hover { box-shadow: 0 4px 20px rgba(26,31,110,.1); }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 22px;
+      cursor: pointer;
+      user-select: none;
+      gap: 12px;
+    }
+    .faq-question h6 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: .95rem;
+      color: var(--text-dark);
+      margin: 0;
+      flex: 1;
+      line-height: 1.3;
+    }
+    .faq-chevron {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--light-bg);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: background .2s, transform .3s;
+    }
+    .faq-chevron .material-icons { font-size: 1.1rem; color: var(--accent); }
+    .faq-item.open .faq-chevron { background: var(--accent); transform: rotate(180deg); }
+    .faq-item.open .faq-chevron .material-icons { color: #fff; }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .35s cubic-bezier(0,1,0,1);
+    }
+    .faq-item.open .faq-answer {
+      max-height: 600px;
+      transition: max-height .5s cubic-bezier(1,0,1,0);
+    }
+    .faq-answer-inner {
+      padding: 0 22px 20px;
+      font-size: .9rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+      border-top: 1px solid #eef0ff;
+      padding-top: 14px;
+    }
+    .faq-answer-inner strong { color: var(--text-dark); }
+  
+    
+
+    /* ══ PÁGINA CLASE GRATIS ══ */
+    #hero {
+      min-height: auto; align-items: center; padding: 64px 0 72px;
+      background:
+        linear-gradient(180deg, rgba(14,10,40,.55) 0%, rgba(30,16,70,.55) 45%, rgba(60,24,120,.50) 100%),
+        url("AlgorithmicsPalma_jpg.webp") center/cover no-repeat;
+      position: relative;
+    }
+    .hero-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,440px); gap:56px; align-items:center; position:relative; z-index:2; }
+    .hero-points { list-style:none; padding:0; margin:0 0 1.6rem; }
+    .hero-points li { color:#fff; display:flex; gap:10px; align-items:center; margin-bottom:10px; font-size:1rem; }
+    .hero-points .material-icons { color:#c4b5fd; font-size:1.3rem; }
+    .hero-addr { color:rgba(255,255,255,.85); font-size:.95rem; line-height:1.6; border-left:3px solid var(--accent2); padding-left:14px; }
+    .hero-addr a { color:#fff; text-decoration:underline; text-underline-offset:3px; }
+
+    .form-card { background:#fff; border-radius:20px; padding:30px 28px 26px; box-shadow:0 24px 60px rgba(12,8,50,.4); }
+    .form-card h2 { font-size:1.45rem; font-weight:700; margin:0 0 4px; }
+    .form-card .sub { font-size:.92rem; color:var(--text-mid); margin-bottom:18px; }
+    .field { margin-bottom:13px; }
+    .field label.lbl { display:block; font-weight:600; font-size:.86rem; margin-bottom:5px; color:var(--text-dark); }
+    .field input.browser-default, .field select.browser-default {
+      width:100%; font:inherit; font-size:1rem; color:var(--text-dark); background:#fff;
+      padding:11px 13px; border:1.5px solid #e0e3ff; border-radius:10px; height:auto; display:block;
+      transition:border-color .15s, box-shadow .15s;
+    }
+    .field input.browser-default:focus, .field select.browser-default:focus { outline:none; border-color:var(--accent); box-shadow:0 0 0 3px rgba(124,58,237,.18); }
+    .field.invalid input.browser-default, .field.invalid select.browser-default { border-color:#c8283d; }
+    .msg { display:none; color:#c8283d; font-size:.8rem; margin-top:4px; }
+    .field.invalid .msg { display:block; }
+    .frow { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+    .legal-wrap label span { font-size:.8rem; line-height:1.45; color:var(--text-mid); padding-left:28px; }
+    .legal-wrap details { margin:4px 0 12px 28px; font-size:.76rem; color:var(--text-mid); line-height:1.5; }
+    .legal-wrap summary { cursor:pointer; color:var(--accent); font-weight:600; }
+    .legal-wrap a { color:var(--accent); }
+    .legal-wrap.invalid .msg { display:block; margin-left:28px; }
+    .hp { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+    .btn-send {
+      width:100%; height:52px; line-height:52px; border-radius:12px !important; font-family:'Space Grotesk',sans-serif;
+      font-weight:700; font-size:1.02rem; background:var(--grad) !important; color:#fff; box-shadow:0 8px 24px rgba(124,58,237,.35);
+    }
+    .status { margin-top:12px; font-weight:600; font-size:.92rem; text-align:center; min-height:1.2em; color:#c8283d; }
+    .done { display:none; text-align:center; padding:18px 4px 8px; }
+    .done .tick { width:56px; height:56px; border-radius:50%; background:#10b981; color:#fff; display:grid; place-items:center; font-size:1.8rem; margin:0 auto 14px; }
+    .done p { color:var(--text-mid); line-height:1.6; }
+    .form-card.sent form, .form-card.sent > h2, .form-card.sent > .sub { display:none; }
+    .form-card.sent .done { display:block; }
+
+    /* Cards de cursos */
+    #cursos { background:var(--light-bg); }
+    .courses-grid2 { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:24px; margin-top:2.4rem; }
+    .course-col { display:block; }
+    .course-card.card { margin:0; }
+    .course-card .card-title { font-size:1.05rem; }
+    .route-tag { display:inline-block; color:#fff; font-size:.68rem; font-weight:700; padding:2px 10px; border-radius:20px; margin-bottom:10px; }
+    .sched { list-style:none; margin:0; padding:0; }
+    .sched li { display:flex; align-items:center; gap:6px; font-size:.8rem; font-weight:600; color:var(--text-mid); margin-bottom:4px; }
+    .sched .material-icons { color:var(--accent); }
+
+    /* Dónde estamos */
+    #donde { background:#fff; }
+    .where-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.2fr); gap:32px; margin-top:2.2rem; align-items:stretch; }
+    .where-card { background:var(--light-bg); border-radius:16px; padding:30px 28px; }
+    .where-card h5 { font-weight:700; margin:0 0 14px; }
+    .where-card p { color:var(--text-mid); line-height:1.7; margin:0 0 12px; }
+    .where-card a { color:var(--accent); font-weight:600; }
+    .where-map { border-radius:16px; overflow:hidden; min-height:320px; box-shadow:0 4px 24px rgba(26,31,110,.1); }
+    .where-map iframe { width:100%; height:100%; min-height:320px; border:0; display:block; }
+
+    /* Centros */
+    #centros { background:var(--light-bg); text-align:center; }
+    #centros img { max-width:100%; width:760px; height:auto; margin-top:2rem; }
+
+
+    /* Header: solo logo + texto "Página de contacto" */
+    nav .nav-wrapper { display:flex; align-items:center; justify-content:space-between; height:100%; }
+    nav .brand-logo { position:static; transform:none; }
+    nav .nav-contact-label { font-family:'DM Sans',sans-serif; font-weight:500; font-size:.95rem; letter-spacing:.2px; color:#fff; white-space:nowrap; padding-right:1.5rem; }
+    #hero::before, #hero::after { display:none; }
+    @media (max-width:600px) { nav .brand-logo { padding-left:1rem; } nav .nav-contact-label { font-size:.85rem; padding-right:1rem; } }
+
+
+    /* Filtro por edad */
+    .age-filter { display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:10px; margin:2rem 0 .6rem; }
+    .age-filter-label { font-family:'Space Grotesk',sans-serif; font-weight:700; color:var(--text-dark); margin-right:4px; }
+    .age-chip { appearance:none; border:1.5px solid #e0e3ff; background:#fff; color:var(--text-mid); font:inherit; font-weight:600; font-size:.9rem; padding:8px 18px; border-radius:50px; cursor:pointer; transition:all .18s; }
+    .age-chip:hover { border-color:var(--accent); color:var(--accent); }
+    .age-chip.active { background:var(--grad); border-color:transparent; color:#fff; box-shadow:0 6px 18px rgba(124,58,237,.3); }
+    .age-chip:focus-visible { outline:3px solid rgba(124,58,237,.35); outline-offset:2px; }
+    .age-filter-status { text-align:center; color:var(--text-mid); font-size:.92rem; margin:0 0 1.6rem; min-height:1.6em; }
+    .age-filter-status strong { color:var(--text-dark); }
+    .age-clear { appearance:none; border:0; background:none; font:inherit; font-weight:600; color:var(--accent); cursor:pointer; margin-left:10px; padding:0; }
+    .age-clear[hidden] { display:none; }
+    .course-col.is-hidden { display:none; }
+
+    /* Textos de la tarjeta del formulario: anular el blanco de "#hero p" */
+    #hero .form-card p { color:var(--text-mid); max-width:none; font-size:.92rem; line-height:1.6; margin:0 0 12px; }
+    #hero .form-card .legal-wrap details p { font-size:.76rem; line-height:1.5; margin:6px 0 0; }
+    #hero .form-card .legal-wrap a { color:var(--accent); }
+    #hero .form-card .sub { margin-bottom:18px; }
+    #hero .form-card .status { color:#c8283d; font-size:.92rem; margin:12px 0 0; }
+
+    /* Puntos y dirección del hero: solo tablet y escritorio */
+    @media (max-width:600px) { .hero-points, .hero-addr { display:none; } }
+    @media (max-width:900px) {
+      .hero-grid, .where-grid { grid-template-columns:1fr; gap:32px; }
+      #hero { padding:40px 0 48px; }
+      section { padding:56px 0; }
+    }
+    @media (max-width:420px) { .frow { grid-template-columns:1fr; } .form-card { padding:24px 18px 22px; } }
+
+  </style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K5KLCC47"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<nav>
+  <div class="nav-wrapper container">
+    <a href="https://algorithmicspalma.com" class="brand-logo">
+      <img src="https://algorithmicspalma.com/img/logo-a.png" alt="Algorithmics" class="nav-logo-a" />
+      <span class="nav-palma">Algorithmics Palma</span>
+    </a>
+    <span class="nav-contact-label">Página de contacto</span>
+  </div>
+</nav>
+
+<!-- HERO + FORMULARIO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <h1>Despierta el talento <span>tecnológico</span> de tus hijos/as</h1>
+        <p>Apúntate a nuestras clases de prueba gratuitas y descubre cómo aprenden a programar, diseñar y crear con tecnología. Sin compromiso.</p>
+        <ul class="hero-points">
+          <li><i class="material-icons">check_circle</i>Grupos reducidos de máximo 10–12 alumnos</li>
+          <li><i class="material-icons">check_circle</i>Cursos para edades de 6 a 18 años</li>
+          <li><i class="material-icons">check_circle</i>Proyectos reales desde la primera clase</li>
+        </ul>
+        <div class="hero-addr">
+          Ven a conocernos a nuestro centro tecnológico<br>
+          <strong>C/ Marqués de Fontsanta, 37 · Palma</strong> ·
+          <a href="tel:+34613093394">613 09 33 94</a>
+        </div>
+      </div>
+
+      <div class="form-card" id="formulario">
+        <h2>Formulario de contacto</h2>
+        <p class="sub">Déjanos tus datos y nos pondremos en contacto contigo.</p>
+        <form id="form" novalidate>
+          <div class="field">
+            <label class="lbl" for="nombre">Nombre y apellidos</label>
+            <input class="browser-default" type="text" id="nombre" name="nombre" autocomplete="name" required>
+            <span class="msg">Escribe tu nombre.</span>
+          </div>
+          <div class="frow">
+            <div class="field">
+              <label class="lbl" for="telefono">Teléfono</label>
+              <input class="browser-default" type="tel" id="telefono" name="telefono" autocomplete="tel" inputmode="tel" required>
+              <span class="msg">Introduce un teléfono válido.</span>
+            </div>
+            <div class="field">
+              <label class="lbl" for="edad">Edad del alumno/a</label>
+<input class="browser-default" type="number" id="edad" name="edad" inputmode="numeric" min="1" max="99" step="1" required>
+              <span class="msg">Introduce una edad válida.</span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="lbl" for="email">Correo electrónico</label>
+            <input class="browser-default" type="email" id="email" name="email" autocomplete="email" required>
+            <span class="msg">Introduce un correo válido.</span>
+          </div>
+          <div class="hp" aria-hidden="true"><label>No rellenar <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+
+          <div class="legal-wrap" id="legalWrap">
+            <label><input type="checkbox" id="legal" name="legal"><span>He leído y acepto la información sobre protección de datos.</span></label>
+            <details>
+              <summary>Ver información legal</summary>
+              <p>Según el Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo de 27 de abril de 2016. Tus datos se utilizan para gestionar las consultas realizadas a través de nuestra web mediante el formulario web. La base legal es tu consentimiento al marcar la casilla. No se cederán datos a terceros, salvo obligación legal. Puedes acceder, rectificar y suprimir tus datos, así como ejercer otros derechos. Más información en el <a href="https://algorithmics.es/aviso_legal" target="_blank" rel="noopener">aviso legal</a>.</p>
+            </details>
+            <span class="msg">Debes aceptar la protección de datos para continuar.</span>
+          </div>
+
+          <button type="submit" id="send" class="btn waves-effect btn-send">Contactar</button>
+          <p class="status" id="status" role="status"></p>
+        </form>
+        <div class="done">
+          <div class="tick" aria-hidden="true">✓</div>
+          <h2>¡Solicitud enviada!</h2>
+          <p>Gracias. Nuestro equipo de Algorithmics Palma se pondrá en contacto contigo muy pronto para reservar la clase de prueba.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CURSOS -->
+<section id="cursos">
+  <div class="container">
+    <div class="center-align">
+      <div class="section-label">Nuestra oferta educativa</div>
+      <h2 class="section-title">Elige el curso de tu hijo/a</h2>
+      <p class="section-sub" style="margin:0 auto;">Todos los cursos se complementan entre sí, desde la etapa más temprana hasta la preuniversitaria. Entra en cada curso para ver el temario y los horarios 26/27.</p>
+    </div>
+    <div class="age-filter" role="group" aria-label="Filtrar cursos por edad">
+      <span class="age-filter-label">🎯 Edad:</span>
+      <button type="button" class="age-chip active" data-min="0" data-max="99">Todos</button>
+      <button type="button" class="age-chip" data-min="6" data-max="7">6–7</button>
+      <button type="button" class="age-chip" data-min="8" data-max="9">8–9</button>
+      <button type="button" class="age-chip" data-min="10" data-max="11">10–11</button>
+      <button type="button" class="age-chip" data-min="12" data-max="13">12–13</button>
+      <button type="button" class="age-chip" data-min="14" data-max="15">14–15</button>
+      <button type="button" class="age-chip" data-min="16" data-max="18">16–18</button>
+    </div>
+    <p class="age-filter-status" aria-live="polite">Mostrando <strong id="ageCount">12</strong> cursos <button type="button" class="age-clear" id="ageClear" hidden>✕ Quitar filtro</button></p>
+    <div class="courses-grid2">
+      <article class="course-col">
+        <div class="card course-card">
+          <div class="course-card-header">
+            <div class="course-icon" style="background:linear-gradient(135deg,#dcfce7,#d1fae5);">🧩</div>
+            <div><div class="age-badge">6–7 años</div><span class="card-title">Fundamentos de Programación</span></div>
+          </div>
+          <div class="card-content">
+            <p>Primer contacto con la programación con Scratch Jr, retos gamificados y cuadernillos de lógica. Crean sus propios juegos y animaciones.</p>
+            <span class="route-tag" style="background:linear-gradient(135deg,#059669,#10b981);">🌱 Tronco Común</span>
+            <ul class="sched"><li><i class="material-icons tiny">schedule</i>Jueves 17:30–18:30</li></ul>
+          </div>
+          <div class="card-action">
+            <div class="card-action-row">
+              <a href="https://algorithmicspalma.com/fundamentos-programacion" class="card-btn-primary">Ver curso</a>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="course-col">
+        <div class="card course-card">
+          <div class="course-card-header">
+            <div class="course-icon" style="background:linear-gradient(135deg,#dcfce7,#d1fae5);">💻</div>
+            <div><div class="age-badge">7–9 años</div><span class="card-title">Alfabetización Digital</span></div>
+          </div>
+          <div class="card-content">
+            <p>Aprenden a usar el ordenador, internet y la suite de Google de forma segura y autónoma, con mecanografía y ciberseguridad.</p>
+            <span class="route-tag" style="background:linear-gradient(135deg,#059669,#10b981);">🌱 Tronco Común</span>
+            <ul class="sched"><li><i class="material-icons tiny">schedule</i>Miércoles 17:30–19:00</li></ul>
+          </div>
+          <div class="card-action">
+            <div class="card-action-row">
+              <a href="https://algorithmicspalma.com/alfabetizacion-digital" class="card-btn-primary">Ver curso</a>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="course-col">
+        <div class="card course-card">
+          <div class="course-card-header">
+            <div class="course-icon" style="background:linear-gradient(135deg,#dbeafe,#ede9fe);">🎮</div>
+            <div><div class="age-badge">8–11 años</div><span class="card-title">Programación Visual</span></div>
+          </div>
+          <div class="card-content">
+            <p>Animaciones y juegos complejos con programación por bloques en Scratch. Construyen un portafolio real desde el primer día.</p>
+            <span class="route-tag" style="background:linear-gradient(135deg,#2563eb,#3b82f6);">🔵 Ruta Analítica</span>
+            <ul class="sched"><li><i class="material-icons tiny">schedule</i>Lunes 17:30–19:00</li><li><i class="material-icons tiny">schedule</i>Jueves 19:00–20:30</li></ul>
+          </div>
+          <div class="card-action">
+            <div class="card-action-row">
+              <a href="https://algorithmicspalma.com/programacion-visual" class="card-btn-primary">Ver curso</a>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="course-col">
+        <div class="card course-card">
+          <div class="course-card-header">
+            <div class="course-icon" style="background:linear-gradient(135deg,#dbeafe,#ede9fe);">🧮</div>
+            <div><div class="age-badge">9–13 años</div><span class="card-title">Pensamiento Lógico-Matemático</span></div>
+          </div>
+          <div class="card-content">
+            <p>Misiones gamificadas de cálculo rápido, geometría, combinatoria y pensamiento algorítmico. Dos niveles: I (9–10) y II (11–13).</p>
+            <span class="route-tag" style="background:linear-gradient(135deg,#2563eb,#3b82f6);">🔵 Ruta Analítica</span>
+            <ul class="sched"><li><i class="material-icons tiny">schedule</i>Viernes 16:00–17:30 (I)</li><li><i class="material-icons tiny">schedule</i>Viernes 17:30–19:00 (II)</li></ul>
+          </div>
+          <div class="card-action">
+            <div class="card-action-row">
+              <a href="https://algorithmicspalma.com/pensamiento-logicomatematico" class="card-btn-primary">Ver curso</a>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="course-col">
+        <div class="card course-card">
+          <div class="course-card-header">
+            <div class="course-icon" style="background:linear-gradient(135deg,#dbeafe,#ede9fe);">🐍</div>
+            <div><div class="age-badge">12–17 años</div><span class="card-title">Python</span></div>
+          </div>
+          <div class="card-content">
+            <p>El lenguaje que impulsa la IA, el análisis de datos y la automatización. Desde Python Start I (12–14) hasta Python Pro I (15–17): crean programas que resuelven problemas reales, automatizan tareas, trabajan con datos y construyen sus propias apps y juegos con herramientas profesionales.</p>
+            <span class="route-tag" style="background:linear-gradient(135deg,#2563eb,#3b82f6);">🔵 Ruta Analítica</span>
+            <ul class="sched"><li><i class="material-icons tiny">schedule</i>Start I: Jueves 19:00 · Viernes 17:30</li><li><i class="material-icons tiny">schedule</i>Pro I: Jueves 16:00–17:30</li></ul>
+          </div>
+          <div class="card-action">
+            <div class="card-action-row">
+              <a href="https://algorithmicspalma.com/python" class="card-btn-primary">Ver curso</a>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="course-col">
+        <div class="card course-card">
+          <div class="course-card-header">
+            <div class="course-icon" style="background:linear-gradient(135deg,#fce7f3,#ede9fe);">🎨</div>
+            <div><div class="age-badge">9–11 años</div><span class="card-title">Diseño Gráfico</span></div>
+          </div>
+          <div class="card-content">
+            <p>Ilustraciones, collages, vectores, logotipos y modelado 3D. Desarrollan su pensamiento visual y su creatividad.</p>
+            <span class="route-tag" style="background:linear-gradient(135deg,#db2777,#ec4899);">🎨 Ruta Creativa</span>
+            <ul class="sched"><li><i class="material-icons tiny">schedule</i>Consultar opción online</li></ul>
+          </div>
+          <div class="card-action">
+            <div class="card-action-row">
+              <a href="https://algorithmicspalma.com/diseno-grafico" class="card-btn-primary">Ver curso</a>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="course-col">
+        <div class="card course-card">
+          <div class="course-card-header">
+            <div class="course-icon" style="background:linear-gradient(135deg,#fce7f3,#ede9fe);">🌐</div>
+            <div><div class="age-badge">11–14 años</div><span class="card-title">Diseño Web</span></div>
+          </div>
+          <div class="card-content">
+            <p>Crean sus propias páginas web y portafolios digitales desde cero, con UX/UI y diseño adaptado a móvil.</p>
+            <span class="route-tag" style="background:linear-gradient(135deg,#db2777,#ec4899);">🎨 Ruta Creativa</span>
+            <ul class="sched"><li><i class="material-icons tiny">schedule</i>Consultar opción online</li></ul>
+          </div>
+          <div class="card-action">
+            <div class="card-action-row">
+              <a href="https://algorithmicspalma.com/diseno-web" class="card-btn-primary">Ver curso</a>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="course-col">
+        <div class="card course-card">
+          <div class="course-card-header">
+            <div class="course-icon" style="background:linear-gradient(135deg,#fce7f3,#ede9fe);">🤖</div>
+            <div><div class="age-badge">12–15 años</div><span class="card-title">Inteligencia Artificial</span></div>
+          </div>
+          <div class="card-content">
+            <p>Prompts, texto, código, imágenes, audio y modelos 3D con IA. Aprenden a usar la IA de forma ética y creativa.</p>
+            <span class="route-tag" style="background:linear-gradient(135deg,#db2777,#ec4899);">🎨 Ruta Creativa</span>
+            <ul class="sched"><li><i class="material-icons tiny">schedule</i>Martes 19:00–20:30</li></ul>
+          </div>
+          <div class="card-action">
+            <div class="card-action-row">
+              <a href="https://algorithmicspalma.com/inteligencia-artificial" class="card-btn-primary">Ver curso</a>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="course-col">
+        <div class="card course-card">
+          <div class="course-card-header">
+            <div class="course-icon" style="background:linear-gradient(135deg,#fce7f3,#ede9fe);">📱</div>
+            <div><div class="age-badge">15–18 años</div><span class="card-title">Desarrollo Web Frontend</span></div>
+          </div>
+          <div class="card-content">
+            <p>HTML, CSS y JavaScript profesional. Diseñan, programan y publican aplicaciones en servidores reales.</p>
+            <span class="route-tag" style="background:linear-gradient(135deg,#db2777,#ec4899);">🎨 Ruta Creativa</span>
+            <ul class="sched"><li><i class="material-icons tiny">schedule</i>Consultar opción online</li></ul>
+          </div>
+          <div class="card-action">
+            <div class="card-action-row">
+              <a href="https://algorithmicspalma.com/desarrolloweb-frontend" class="card-btn-primary">Ver curso</a>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="course-col">
+        <div class="card course-card">
+          <div class="course-card-header">
+            <div class="course-icon" style="background:linear-gradient(135deg,#ffedd5,#fef3c7);">⛏️</div>
+            <div><div class="age-badge">9–12 años</div><span class="card-title">Diseño de Videojuegos con Minecraft</span></div>
+          </div>
+          <div class="card-content">
+            <p>Lógica computacional con Minecraft como laboratorio: redstone, comandos y sus propios mods.</p>
+            <span class="route-tag" style="background:linear-gradient(135deg,#ea580c,#f97316);">🎮 Ruta Videojuegos</span>
+            <ul class="sched"><li><i class="material-icons tiny">schedule</i>Martes y Miércoles 17:30–19:00</li><li><i class="material-icons tiny">schedule</i>Viernes 16:00–17:30</li></ul>
+          </div>
+          <div class="card-action">
+            <div class="card-action-row">
+              <a href="https://algorithmicspalma.com/minecraft" class="card-btn-primary">Ver curso</a>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="course-col">
+        <div class="card course-card">
+          <div class="course-card-header">
+            <div class="course-icon" style="background:linear-gradient(135deg,#ffedd5,#fef3c7);">🕹️</div>
+            <div><div class="age-badge">10–13 años</div><span class="card-title">Diseño de Videojuegos con Roblox</span></div>
+          </div>
+          <div class="card-content">
+            <p>Crean mundos y juegos desde cero en Roblox Studio y programan en Lua. Presentan sus proyectos a la comunidad.</p>
+            <span class="route-tag" style="background:linear-gradient(135deg,#ea580c,#f97316);">🎮 Ruta Videojuegos</span>
+            <ul class="sched"><li><i class="material-icons tiny">schedule</i>Miércoles 19:00–20:30</li><li><i class="material-icons tiny">schedule</i>Jueves 17:30–19:00</li></ul>
+          </div>
+          <div class="card-action">
+            <div class="card-action-row">
+              <a href="https://algorithmicspalma.com/roblox" class="card-btn-primary">Ver curso</a>
+            </div>
+          </div>
+        </div>
+      </article>
+      <article class="course-col">
+        <div class="card course-card">
+          <div class="course-card-header">
+            <div class="course-icon" style="background:linear-gradient(135deg,#ffedd5,#fef3c7);">⚡</div>
+            <div><div class="age-badge">12–16 años</div><span class="card-title">Diseño de Videojuegos con Unity</span></div>
+          </div>
+          <div class="card-content">
+            <p>Motor profesional Unity y C#. Juegos 3D con animaciones y efectos, publicados en Android.</p>
+            <span class="route-tag" style="background:linear-gradient(135deg,#ea580c,#f97316);">🎮 Ruta Videojuegos</span>
+            <ul class="sched"><li><i class="material-icons tiny">schedule</i>Lunes 16:00–17:30</li><li><i class="material-icons tiny">schedule</i>Viernes 19:00–20:30</li></ul>
+          </div>
+          <div class="card-action">
+            <div class="card-action-row">
+              <a href="https://algorithmicspalma.com/unity" class="card-btn-primary">Ver curso</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- DÓNDE ESTAMOS -->
+<section id="donde">
+  <div class="container">
+    <div class="center-align">
+      <div class="section-label">Dónde estamos</div>
+      <h2 class="section-title">Ven a conocernos</h2>
+    </div>
+    <div class="where-grid">
+      <div class="where-card">
+        <h5>Algorithmics Palma</h5>
+        <p>📍 C/ Marqués de Fontsanta, 37<br>07005 Palma de Mallorca, Islas Baleares</p>
+        <p>📞 <a href="tel:+34613093394">613 09 33 94</a></p>
+        <p>✉️ <a href="mailto:palma@algoacademy.es">palma@algoacademy.es</a></p>
+        <p><i class="fa-brands fa-whatsapp" style="color:#25d366;font-size:1.1em;width:1.4em;text-align:center;"></i> <a href="https://wa.me/34613093394?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20de%20los%20cursos%20de%20Algorithmics%20Palma." target="_blank" rel="noopener">WhatsApp</a></p>
+      </div>
+      <div class="where-map">
+        <iframe title="Mapa Algorithmics Palma" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=2.6527%2C39.5747%2C2.6687%2C39.5827&amp;layer=mapnik&amp;marker=39.5787%2C2.6607"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CENTROS ALGORITHMICS -->
+<section id="centros">
+  <div class="container">
+    <div class="section-label">Red de centros</div>
+    <h2 class="section-title">Centros Algorithmics</h2>
+    <p class="section-sub" style="margin:0 auto;">Una amplia red para ser líderes de educación digital en España.</p>
+    <img src="https://static.tildacdn.net/tild3861-6338-4136-b766-386239626461/ALG_Espaapng.webp" alt="Mapa de centros Algorithmics en España" loading="lazy" />
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 m8 offset-m2 center-align" style="margin-bottom:2.5rem;">
+        <div class="section-label" style="margin:0 auto 1rem;">Preguntas frecuentes</div>
+        <h2 class="section-title">¿Tienes dudas?<br>Aquí las resolvemos</h2>
+      </div>
+    </div>
+    <div class="row"><div class="col s12 l10 offset-l1">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question"><h6>¿Por qué Algorithmics?</h6><div class="faq-chevron"><i class="material-icons">expand_more</i></div></div>
+          <div class="faq-answer"><div class="faq-answer-inner">Porque es una <strong>extraescolar que aporta valor</strong>. Somos una escuela internacional de programación con presencia en más de 60 países. En Palma trabajamos con <strong>grupos reducidos</strong> (máximo 10–12 alumnos), proyectos reales desde el primer día y cursos que se complementan entre sí, desde los 6 hasta los 18 años.</div></div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question"><h6>¿Puedo probar la experiencia antes de decidir?</h6><div class="faq-chevron"><i class="material-icons">expand_more</i></div></div>
+          <div class="faq-answer"><div class="faq-answer-inner">Sí. La <strong>primera clase es gratuita y sin compromiso</strong>. Rellena el formulario de esta página y te contactamos para reservar tu clase de prueba en nuestro centro de C/ Marqués de Fontsanta, 37. Podrás conocer a los profesores y ver cómo trabajan los alumnos antes de decidir.</div></div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question"><h6>¿Recibiré un certificado al completar un curso?</h6><div class="faq-chevron"><i class="material-icons">expand_more</i></div></div>
+          <div class="faq-answer"><div class="faq-answer-inner">Sí. Al finalizar cada curso los alumnos reciben un <strong>diploma de Algorithmics</strong> y pueden optar a certificaciones internacionales reconocidas por universidades y empresas.</div></div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question"><h6>¿Cómo puede Algorithmics marcar la diferencia en el futuro de mi hijo/a?</h6><div class="faq-chevron"><i class="material-icons">expand_more</i></div></div>
+          <div class="faq-answer"><div class="faq-answer-inner">Aprender a programar no tiene edad y, cuanto antes se empieza, mejor. Cada etapa prepara la siguiente y desarrolla <strong>pensamiento lógico, creatividad, trabajo en equipo y confianza</strong> para resolver retos. Además, cada alumno construye un portafolio de proyectos reales y llega a la etapa preuniversitaria con una base sólida en tecnología.</div></div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-question"><h6>¿Cómo inscribo a mi hijo en un curso?</h6><div class="faq-chevron"><i class="material-icons">expand_more</i></div></div>
+          <div class="faq-answer"><div class="faq-answer-inner">Puedes hacerlo desde la <a href="https://algorithmics.es/inscripcion-online" target="_blank" rel="noopener">inscripción online</a>, por <a href="https://wa.me/34613093394?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20informaci%C3%B3n%20de%20los%20cursos%20de%20Algorithmics%20Palma." target="_blank" rel="noopener">WhatsApp</a> o llamando al <a href="tel:+34613093394">613 09 33 94</a>. Las inscripciones del curso 26/27 están abiertas y los alumnos actuales tienen prioridad de renovación.</div></div>
+        </div>
+    </div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="row">
+      <!-- Col 1: Logo + descripción + contacto -->
+      <div class="col s12 m6 l4" style="margin-bottom:2rem;">
+        <div style="margin-bottom:14px;">
+          <img src="https://algorithmicspalma.com/img/logo-algo-RGB-full.png" alt="Algorithmics Palma" style="height:36px;width:auto;filter:brightness(0) invert(1);" />
+        </div>
+        <p style="margin-bottom:6px;font-family:'Space Grotesk',sans-serif;font-weight:700;color:#fff;font-size:.95rem;">Palma de Mallorca</p>
+        <p style="margin-bottom:16px;">Escuela Internacional de Programación y Tecnología. Acompañamos a niños y jóvenes de 6 a 18 años en su camino para convertirse en los creadores digitales del futuro.</p>
+        <hr style="border:none;border-top:1px solid rgba(255,255,255,.15);margin-bottom:14px;" />
+        <p style="font-size:.85rem;color:rgba(255,255,255,.6);margin-bottom:6px;">📍 C/ Marqués de Fontsanta, 37 · 07005 Palma de Mallorca</p>
+        <p style="font-size:.85rem;margin-bottom:4px;"><a href="tel:+34613093394" style="color:rgba(255,255,255,.6);text-decoration:none;">📞 613 09 33 94</a></p>
+        <p style="font-size:.85rem;margin-bottom:4px;"><a href="mailto:palma@algoacademy.es" style="color:rgba(255,255,255,.6);text-decoration:none;">✉️ palma@algoacademy.es</a></p>
+        <p style="font-size:.85rem;margin-bottom:0;"><a href="https://algorithmicspalma.com" target="_blank" style="color:rgba(255,255,255,.6);text-decoration:none;">🌐 algorithmicspalma.com</a></p>
+      </div>
+
+      <!-- Col 2: Academia -->
+      <div class="col s12 m6 l2 offset-l1" style="margin-bottom:2rem;">
+        <h6>Academia</h6>
+        <a href="#donde">Dónde estamos</a>
+        <a href="https://algorithmicspalma.com/index.html#instalaciones">Instalaciones</a>
+        <a href="https://algorithmicspalma.com/index.html#campusverano">Campus Verano</a>
+        <a href="https://algorithmicspalma.com/index.html#certificaciones">Certificaciones</a>
+        <a href="https://algorithmics.es/inscripcion-online" target="_blank">Inscripciones</a>
+        <a href="https://algorithmicspalma.com/contacto" target="_blank">Contacto</a>
+      </div>
+
+      <!-- Col 3: Alumnos -->
+      <div class="col s12 m6 l2" style="margin-bottom:2rem;">
+        <h6>Alumnos</h6>
+        <a href="https://learn.alg.academy/course" target="_blank">Acceso a cursos</a>
+        <a href="https://algorithmics.es/inscripcion-online" target="_blank">Inscripciones</a>
+      </div>
+
+      <!-- Col 4: Síguenos -->
+      <div class="col s12 m6 l3" style="margin-bottom:2rem;">
+        <h6>Síguenos</h6>
+        <a href="https://www.facebook.com/algopalma" target="_blank" style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <i class="fa-brands fa-facebook" style="font-size:1rem;width:16px;text-align:center;"></i> Facebook
+        </a>
+        <a href="https://www.instagram.com/algopalma" target="_blank" style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <i class="fa-brands fa-instagram" style="font-size:1rem;width:16px;text-align:center;"></i> Instagram
+        </a>
+        <a href="https://www.tiktok.com/@algorithmicspalma" target="_blank" style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <i class="fa-brands fa-tiktok" style="font-size:1rem;width:16px;text-align:center;"></i> TikTok
+        </a>
+        <a href="https://www.youtube.com/@AlgorithmicsPalma" target="_blank" style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <i class="fa-brands fa-youtube" style="font-size:1rem;width:16px;text-align:center;"></i> YouTube
+        </a>
+        <a href="https://www.linkedin.com/in/algorithmicspalma/" target="_blank" style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+          <i class="fa-brands fa-linkedin" style="font-size:1rem;width:16px;text-align:center;"></i> LinkedIn
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Algorithmics Palma · Escuela Internacional de Programación y Proyectos Digitales · Todos los derechos reservados</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+  // ====== CONFIGURACIÓN ======
+  const APPS_SCRIPT_URL = "PEGA_AQUI_TU_URL_DE_APPS_SCRIPT/exec";
+  const CAMPANA = "form-palma-local";
+  // ===========================
+
+  document.addEventListener('DOMContentLoaded', function () {
+  });
+  function toggleFaq(item) {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  const form = document.getElementById('form'), card = document.getElementById('formulario');
+  const statusEl = document.getElementById('status'), sendBtn = document.getElementById('send');
+  const params = new URLSearchParams(location.search), loadedAt = Date.now();
+  const rules = {
+    nombre: v => v.trim().length >= 2,
+    telefono: v => v.replace(/[^\d]/g,'').length >= 9,
+    edad: v => /^\d{1,2}$/.test(v.trim()) && +v >= 1,
+    email: v => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim())
+  };
+  function validate() {
+    let ok = true, first = null;
+    for (const n in rules) {
+      const el = form.elements[n], valid = rules[n](el.value);
+      el.closest('.field').classList.toggle('invalid', !valid);
+      if (!valid) { ok = false; first = first || el; }
+    }
+    const l = form.elements.legal;
+    document.getElementById('legalWrap').classList.toggle('invalid', !l.checked);
+    if (!l.checked) { ok = false; first = first || l; }
+    if (first) first.focus();
+    return ok;
+  }
+  form.addEventListener('input', e => {
+    const f = e.target.closest('.field');
+    if (f && rules[e.target.name] && rules[e.target.name](e.target.value)) f.classList.remove('invalid');
+    if (e.target.name === 'legal' && e.target.checked) document.getElementById('legalWrap').classList.remove('invalid');
+  });
+  form.addEventListener('submit', async e => {
+    e.preventDefault(); statusEl.textContent = '';
+    if (form.elements.website.value) return;
+    if (Date.now() - loadedAt < 2500) return;
+    if (!validate()) return;
+    sendBtn.disabled = true; sendBtn.textContent = 'Enviando…';
+    const data = new URLSearchParams({
+      nombre: form.elements.nombre.value.trim(), telefono: form.elements.telefono.value.trim(),
+      email: form.elements.email.value.trim(), edad: form.elements.edad.value.trim(),
+      curso: 'Contacto', consentimiento: 'Sí', campana: CAMPANA,
+      pagina: location.href.split('?')[0], referrer: document.referrer || '',
+      utm_source: params.get('utm_source')||'', utm_medium: params.get('utm_medium')||'',
+      utm_campaign: params.get('utm_campaign')||'', utm_content: params.get('utm_content')||'',
+      utm_term: params.get('utm_term')||'', fbclid: params.get('fbclid')||'', gclid: params.get('gclid')||'',
+      fecha: new Date().toISOString()
+    });
+    try {
+      await fetch(APPS_SCRIPT_URL, { method:'POST', mode:'no-cors', body:data });
+      card.classList.add('sent');
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event:'form_submit_palma', campana:CAMPANA });
+      if (window.fbq) fbq('track','Lead');
+    } catch (err) {
+      statusEl.textContent = 'No se pudo enviar. Revisa tu conexión o llámanos al 613 09 33 94.';
+      sendBtn.disabled = false; sendBtn.textContent = 'Contactar';
+    }
+  });
+
+  // ── Filtro por edad ──
+  (function () {
+    const chips = document.querySelectorAll('.age-chip');
+    const cols = document.querySelectorAll('#cursos .course-col');
+    const countEl = document.getElementById('ageCount'), clearBtn = document.getElementById('ageClear');
+    cols.forEach(c => {
+      const m = (c.querySelector('.age-badge')?.textContent || '').match(/(\d+)\s*[–-]\s*(\d+)/);
+      c.dataset.min = m ? m[1] : 0; c.dataset.max = m ? m[2] : 99;
+    });
+    function apply(btn) {
+      chips.forEach(b => { b.classList.toggle('active', b === btn); b.setAttribute('aria-pressed', b === btn); });
+      const lo = +btn.dataset.min, hi = +btn.dataset.max;
+      let n = 0;
+      cols.forEach(c => {
+        const show = +c.dataset.min <= hi && +c.dataset.max >= lo;
+        c.classList.toggle('is-hidden', !show);
+        if (show) n++;
+      });
+      countEl.textContent = n;
+      countEl.nextSibling.textContent = n === 1 ? ' curso ' : ' cursos ';
+      clearBtn.hidden = lo === 0;
+    }
+    chips.forEach(b => b.addEventListener('click', () => apply(b)));
+    clearBtn.addEventListener('click', () => apply(chips[0]));
+  })();
+</script>
+</body>
+</html>
