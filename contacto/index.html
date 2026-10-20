@@ -745,7 +745,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="msg">Debes aceptar la protección de datos para continuar.</span>
           </div>
 
-          <button type="submit" id="send" class="btn waves-effect btn-send">Enviar solicitud</button>
+          <button type="submit" id="send" class="btn waves-effect btn-send">Contactar</button>
           <p class="status" id="status" role="status"></p>
         </form>
         <div class="done">
@@ -1129,7 +1129,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script>
   // ====== CONFIGURACIÓN ======
-  const APPS_SCRIPT_URL = "PEGA_AQUI_TU_URL_DE_APPS_SCRIPT/exec";
+  const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw3S2IZDUdkx19n1obuLlUrQlveBWRUjiaDV_iE7GAqbNp2cWeHbhlgMnlQXZb_fSmDqw/exec";
   const CAMPANA = "form-palma-local";
   // ===========================
 
@@ -1171,25 +1171,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   form.addEventListener('submit', async e => {
     e.preventDefault(); statusEl.textContent = '';
     if (form.elements.website.value) return;
-    if (Date.now() - loadedAt < 2500) return;
+    if (Date.now() - loadedAt < 3500) return;
     if (!validate()) return;
     sendBtn.disabled = true; sendBtn.textContent = 'Enviando…';
+    // Mismos parámetros que la landing de Roblox (mismo destino: Apps Script)
+    const keep = k => {
+      let v = params.get(k) || '';
+      try {
+        if (v) sessionStorage.setItem('lp_' + k, v);
+        else v = sessionStorage.getItem('lp_' + k) || '';
+      } catch (err) {}
+      return v;
+    };
     const data = new URLSearchParams({
-      nombre: form.elements.nombre.value.trim(), telefono: form.elements.telefono.value.trim(),
-      email: form.elements.email.value.trim(), edad: form.elements.edad.value.trim(),
-      curso: 'Contacto', consentimiento: 'Sí', campana: CAMPANA,
-      pagina: location.href.split('?')[0], referrer: document.referrer || '',
-      utm_source: params.get('utm_source')||'', utm_medium: params.get('utm_medium')||'',
-      utm_campaign: params.get('utm_campaign')||'', utm_content: params.get('utm_content')||'',
-      utm_term: params.get('utm_term')||'', fbclid: params.get('fbclid')||'', gclid: params.get('gclid')||'',
-      fecha: new Date().toISOString()
+      nombre: form.elements.nombre.value.trim(),
+      telefono: form.elements.telefono.value.trim(),
+      email: form.elements.email.value.trim(),
+      edad: form.elements.edad.value.trim(),
+      modalidad: '',
+      mensaje: '',
+      curso: 'Contacto',
+      pagina: location.href,
+      utm_source: keep('utm_source'), utm_medium: keep('utm_medium'),
+      utm_campaign: keep('utm_campaign'), utm_term: keep('utm_term'),
+      utm_content: keep('utm_content'),
+      gclid: keep('gclid'), gbraid: keep('gbraid'), wbraid: keep('wbraid'),
+      fbclid: keep('fbclid'),
+      fecha: new Date().toISOString(),
+      website: form.elements.website.value,
+      form_started: String(loadedAt)
     });
     try {
       await fetch(APPS_SCRIPT_URL, { method:'POST', mode:'no-cors', body:data });
-      card.classList.add('sent');
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({ event:'form_submit_palma', campana:CAMPANA });
-      if (window.fbq) fbq('track','Lead');
+      // El píxel está en gracias.html: redirigimos allí (el Lead se registra en esa página)
+      setTimeout(function () { window.location.href = 'https://algorithmicspalma.com/gracias.html'; }, 300);
     } catch (err) {
       statusEl.textContent = 'No se pudo enviar. Revisa tu conexión o llámanos al 613 09 33 94.';
       sendBtn.disabled = false; sendBtn.textContent = 'Contactar';
